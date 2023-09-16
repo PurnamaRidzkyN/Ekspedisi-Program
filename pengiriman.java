@@ -19,7 +19,9 @@ public class pengiriman {
         double beratPaket;
         System.out.println("Berat paket =");
         beratPaket = sc.nextDouble();
-        double biayaPengiriman = beratPaket * 12000; 
+        System.out.println("Jarak Pengiriman =");
+        jarakPengiriman = sc.nextDouble();
+        double biayaPengiriman = beratPaket * 12000 + jarakPengiriman * 5000; 
 
         // Output hasil pengiriman
         System.out.println("Nama pengirim: " + namaPengirim);

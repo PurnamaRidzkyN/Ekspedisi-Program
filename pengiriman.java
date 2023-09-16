@@ -19,6 +19,9 @@ public class pengiriman {
         double beratPaket;
         System.out.println("Berat paket =");
         beratPaket = sc.nextDouble();
+
+        double jarakPengiriman;
+
         System.out.println("Jarak Pengiriman =");
         jarakPengiriman = sc.nextDouble();
         double biayaPengiriman = beratPaket * 12000 + jarakPengiriman * 5000; 
@@ -32,4 +35,8 @@ public class pengiriman {
         System.out.println("Apakah anda ingin melanjukan pengiriman?");
 
     }
+
 }
+
+
+

@@ -17,12 +17,20 @@ public class pengiriman {
 
         // Proses penghitungan biaya pengiriman
         double beratPaket;
-        System.out.println("Berat paket =");
+        System.out.println("Berat paket per g =");
         beratPaket = sc.nextDouble();
         double jarakPengiriman;
-        System.out.println("Jarak Pengiriman =");
+        System.out.println("Jarak Pengiriman per km =");
         jarakPengiriman = sc.nextDouble();
-        double biayaPengiriman = beratPaket * 12000 + jarakPengiriman * 5000; 
+        double panjang,lebar,tinggi;
+        System.out.println("Panjangper cm =");
+        panjang = sc.nextDouble();
+        System.out.println("Lebar per cm =");
+        lebar = sc.nextDouble();
+        System.out.println("Tinggi per cm =");
+        tinggi = sc.nextDouble();
+        double biayaPengiriman = beratPaket * 10 + jarakPengiriman * 5 + panjang * 5 + lebar * 5 + tinggi * 5;
+        ; 
 
         // Output hasil pengiriman
         System.out.println("Nama pengirim: " + namaPengirim);

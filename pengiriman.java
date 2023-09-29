@@ -60,6 +60,25 @@ public class pengiriman {
                     System.out.println("Alamat pengirim: " + alamatPengirim);
                     System.out.println("Alamat penerima: " + alamatPenerima);
                     System.out.println("Biaya pengiriman: " + biayaPengiriman);
+
+                    //Layanan Pengiriman
+                    System.out.println("Pilih layanan yang mau digunakan");
+                    System.out.println("1. Reguler");
+                    System.out.println("2. Express");
+                    System.out.println("Pilih dengan memasukan angka sesuai pilihan");
+                    int layanan = scanner.nextInt();
+                    if (layanan==1){
+                    System.out.println("Nama pengirim: " + namaPengirim);
+                    System.out.println("Nama penerima: " + namaPenerima);
+                    System.out.println("Alamat penerima: " + alamatPenerima);
+                    System.out.println("Biaya pengiriman: " + biayaPengiriman);
+                    }  else {
+                    System.out.println("Nama pengirim: " + namaPengirim);
+                    System.out.println("Nama penerima: " + namaPenerima);
+                    System.out.println("Alamat penerima: " + alamatPenerima);
+                    double biayaPengiriman1= biayaPengiriman + biayaPengiriman * 50/100;
+                    System.out.println("Biaya pengiriman: " + biayaPengiriman1);
+                    }
                     System.out.println("Apakah anda ingin melanjutkan pengiriman? \n 1. Iya \n 2.Tidak");
                     int lanjut = scanner.nextInt();
                     

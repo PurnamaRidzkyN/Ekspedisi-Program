@@ -76,7 +76,7 @@ public class pengiriman {
                     System.out.println("Nama pengirim: " + namaPengirim);
                     System.out.println("Nama penerima: " + namaPenerima);
                     System.out.println("Alamat penerima: " + alamatPenerima);
-                    double biayaPengiriman1= biayaPengiriman + biayaPengiriman * 50/100;
+                    double biayaPengiriman1 = biayaPengiriman + biayaPengiriman * 50/100;
                     System.out.println("Biaya pengiriman: " + biayaPengiriman1);
                     }
                     System.out.println("Apakah anda ingin melanjutkan pengiriman? \n 1. Iya \n 2.Tidak");
@@ -84,6 +84,25 @@ public class pengiriman {
                     
                     if (lanjut==1) {
                         System.out.println("Transaksi sudah berhasil ");
+
+                        //Menampilkan Resi
+                        if (layanan==1){
+                            System.out.println("Pengirim : " + namaPengirim);
+                            System.out.println("Penerima : " + namaPenerima);
+                            System.out.println("Tujuan : " + alamatPenerima);
+                            System.out.println("Keterangan : " +beratPaket+" gram "+jarakPengiriman+" km");
+                            System.out.println("Biaya : " + biayaPengiriman);
+                            System.out.println("No Resi : RGL01"+jarakPengiriman+beratPaket );
+                        } else {
+                            double biayaPengiriman1 = biayaPengiriman + biayaPengiriman * 50/100;
+                            System.out.println("Pengirim : " + namaPengirim);
+                            System.out.println("Penerima : " + namaPenerima);
+                            System.out.println("Tujuan : " + alamatPenerima);
+                            System.out.println("Keterangan : " +beratPaket+" gram "+jarakPengiriman+" km");
+                            System.out.println("Biaya : " + biayaPengiriman1);
+                            System.out.println("No Resi : EXR02"+jarakPengiriman+beratPaket );
+                        }
+                        
                     } else {
                         System.out.println("Transaksi gagal");
                     }

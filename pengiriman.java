@@ -15,7 +15,7 @@ public class pengiriman {
         if (username.equals("purnama") && password.equals("saya bos")) {
             System.out.println("Login berhasil!");
 
-            // Menampilkan pilihan setelah login
+            // Menampilkan pilihan setelah login berhasil
             System.out.println("Pilih tindakan:");
             System.out.println("1. Mengirim paket");
             System.out.println("2. Melacak paket");
@@ -62,7 +62,7 @@ public class pengiriman {
                     System.out.println("Biaya pengiriman: " + biayaPengiriman);
 
                     //Layanan Pengiriman
-                    System.out.println("Pilih layanan yang mau digunakan");
+                    System.out.println("Pilih layanan pengiriman yang digunakan");
                     System.out.println("1. Reguler");
                     System.out.println("2. Express");
                     System.out.println("Pilih dengan memasukan angka sesuai pilihan");
@@ -83,7 +83,7 @@ public class pengiriman {
                     int lanjut = scanner.nextInt();
                     
                     if (lanjut==1) {
-                        System.out.println("Transaksi sudah berhasil ");
+                        System.out.println("Transaksi berhasil ");
 
                         //Menampilkan Resi
                         if (layanan==1){
@@ -109,10 +109,16 @@ public class pengiriman {
                     break;
                 case 2:
                     // Pilihan 2: Melacak paket
+                    System.out.println(" Masukkan nomor Resi: ");
+                    String nomorResi = input.nextLine();
+                    System.out.println("Masukkan nama pengirim: " + namaPengirim);
+                    System.out.println("Masukkan nama penerima: " + namaPenerima);
+
                 
                     break;
                 case 3:
                     // Pilihan 3: Riwayat pembelian
+                    
                     
                     break;
                 default:

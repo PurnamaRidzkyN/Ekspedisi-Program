@@ -6,6 +6,7 @@ public class pengiriman {
 
         
         // Proses login
+        do {
         System.out.print("Masukkan nama pengguna: ");
         String username = scanner.nextLine();
         System.out.print("Masukkan kata sandi: ");
@@ -134,5 +135,6 @@ public class pengiriman {
         } else {
             System.out.println("Login gagal. Nama pengguna atau kata sandi salah.");
         }
+    }while (true);
     }
-}
+    }

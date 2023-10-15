@@ -3,8 +3,8 @@ import java.util.Scanner;
 public class pengiriman {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-
         
+        boolean on = true;
         // Proses login
         do {
         System.out.print("Masukkan nama pengguna: ");
@@ -16,10 +16,12 @@ public class pengiriman {
             System.out.println("Login berhasil!");
 
             // Menampilkan pilihan setelah login berhasil
+            do {
             System.out.println("Pilih tindakan:");
             System.out.println("1. Mengirim paket");
             System.out.println("2. Melacak paket");
             System.out.println("3. Riwayat pembelian");
+            System.out.println("4. keluar ");
             System.out.print("Pilihan Anda: ");
             int choice = scanner.nextInt();
             
@@ -112,7 +114,7 @@ public class pengiriman {
                             System.out.println("Biaya : " + biayaPengiriman1);
                             System.out.println("No Resi : EXR02"+jarakPengiriman+beratPaket );
                         }
-                        
+                        on = false;
                     } else {
                         System.out.println("Transaksi gagal");
                     }
@@ -128,13 +130,17 @@ public class pengiriman {
                     
                     
                     break;
+                case 4:
+                on = false;
+                break;
                 default:
                     System.out.println("Pilihan tidak valid.");
                     break;
             }
+        }while(on);
         } else {
             System.out.println("Login gagal. Nama pengguna atau kata sandi salah.");
         }
-    }while (true);
+    }while (on);
     }
     }

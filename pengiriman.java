@@ -1,5 +1,7 @@
 import java.util.Scanner;
 
+import javax.swing.plaf.basic.BasicInternalFrameTitlePane.SystemMenuBar;
+
 public class pengiriman {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -7,12 +9,18 @@ public class pengiriman {
         boolean on = true;
         // Proses login
         do {
+        System.out.println ("Akun yang anda masukkan akan menampilkan pekerjaan anda");
         System.out.print("Masukkan nama pengguna: ");
-        String username = scanner.nextLine();
+        String user = scanner.nextLine();
         System.out.print("Masukkan kata sandi: ");
-        String password = scanner.nextLine();
-
-        if (username.equals("purnama") && password.equals("saya bos")) {
+        String pass = scanner.nextLine();
+        
+        //Array dalam Login
+        String username []={"admin", "adm"};
+        String password []={"oke", "betul"};
+        for (int i = 0; i < username.length; i++) {
+            
+        if (user.equalsIgnoreCase(username[i]) && pass.equalsIgnoreCase(password[i])) {
             System.out.println("Login berhasil!");
 
             // Menampilkan pilihan setelah login berhasil
@@ -118,15 +126,14 @@ public class pengiriman {
                             System.out.println("Tujuan      : " + alamatPenerima);
                             System.out.println("Keterangan  : " +beratPaket+" gram "+jarakPengiriman+" km");
                             System.out.println("Biaya       : " + biayaPengiriman1);
-                            System.out.println("No Resi     : " + resiExprex );
+                            System.out.println("No Resi     : " + resiExpres );
                             String exr = "EXR";
                             int exr2 = Integer.parseInt(exr);
                             int kode = 02;
                             int isiResi11 = (int) jarakPengiriman;
                             int isiResi22 = (int) beratPaket;
                             int resiExpres;
-                            resiExpres = exr2 + kode + isiResi11 + isiResi22;
-                            
+                            resiExpres = exr2 + kode + isiResi11 + isiResi22;                      
 
                         }
                         on = false;
@@ -136,8 +143,8 @@ public class pengiriman {
                     break;
                     
                 case 2:
-                    
-                  
+                    // pilihan 2 : Melacak paket
+
                 
                     break;
                 case 3:
@@ -156,6 +163,7 @@ public class pengiriman {
         } else {
             System.out.println("Login gagal. Nama pengguna atau kata sandi salah.");
         }
+    }
     }while (on);
     }
     }

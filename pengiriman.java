@@ -1,5 +1,7 @@
 import java.util.Scanner;
 
+import javafx.scene.control.TableView.ResizeFeatures;
+
 public class pengiriman {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -7,13 +9,19 @@ public class pengiriman {
         boolean on = true;
         // Proses login
         do {
-        System.out.print("Masukkan nama pengguna: ");
-        String username = scanner.nextLine();
-        System.out.print("Masukkan kata sandi: ");
-        String password = scanner.nextLine();
-
-        if (username.equals("purnama") && password.equals("saya bos")) {
-            System.out.println("Login berhasil!");
+            System.out.println ("Akun yang anda masukkan akan menampilkan pekerjaan anda");
+            System.out.print("Masukkan nama pengguna: ");
+            String user = scanner.nextLine();
+            System.out.print("Masukkan kata sandi: ");
+            String pass = scanner.nextLine();
+            
+            //Array dalam Login
+            String username []={"admin", "adm"};
+            String password []={"oke", "betul"};
+            for (int i = 0; i < username.length; i++) {
+                
+            if (user.equalsIgnoreCase(username[i]) && pass.equalsIgnoreCase(password[i])) {
+                System.out.println("Login berhasil!");
 
             // Menampilkan pilihan setelah login berhasil
             do {
@@ -26,8 +34,7 @@ public class pengiriman {
             int choice = scanner.nextInt();
             
 
-            switch (choice) {
-                case 1:
+                    if (choice == 1){
                     // Pilihan 1: Mengirim paket
                     Scanner sc = new Scanner(System.in);
 
@@ -43,17 +50,17 @@ public class pengiriman {
 
                     // Proses penghitungan biaya pengiriman
                     double beratPaket;
-                    System.out.println("Berat paket (gram)      : ");
+                    System.out.println("Berat paket (gram)        : ");
                     beratPaket = sc.nextDouble();
                     double jarakPengiriman;
-                    System.out.println("Jarak Pengiriman (km)   : ");
+                    System.out.println("Jarak Pengiriman (km)     : ");
                     jarakPengiriman = sc.nextDouble();
                     double panjang, lebar, tinggi;
-                    System.out.println("Panjang (cm)            : ");
+                    System.out.println("Panjang (cm)              : ");
                     panjang = sc.nextDouble();
-                    System.out.println("Lebar (cm)              : ");
+                    System.out.println("Lebar (cm)                : ");
                     lebar = sc.nextDouble();
-                    System.out.println("Tinggi (cm)             : ");
+                    System.out.println("Tinggi (cm)               : ");
                     tinggi = sc.nextDouble();
                     double biayaPengiriman = beratPaket * 10 + jarakPengiriman * 5 + panjang * 5 + lebar * 5 + tinggi * 5;
 
@@ -82,15 +89,15 @@ public class pengiriman {
                     } else {
                         biayaPengiriman = biayaPengiriman + biayaPengiriman * 50/100;
                     } 
-                    biayaPengiriman = biayaPengiriman - (biayaPengiriman * diskon);
+                    double biayaPengiriman1 = biayaPengiriman - (biayaPengiriman * diskon);
                     System.out.println("Nama pengirim           : " + namaPengirim);
                     System.out.println("Nama penerima           : " + namaPenerima);
                     System.out.println("Alamat pengirim         : " + alamatPengirim);
                     System.out.println("Alamat penerima         : " + alamatPenerima);
-                    System.out.println("Biaya pengiriman        : " + biayaPengiriman );
+                    System.out.println("Biaya pengiriman        : " + biayaPengiriman1);
                     System.out.println("Diskon yang di dapat    : " + diskon);
 
-                    System.out.println("Apakah anda ingin melanjutkan pengiriman? \n 1. Iya \n 2.Tidak");
+                    System.out.println("Apakah anda ingin melanjutkan pengiriman? \n 1. Iya \n 2. Tidak");
                     int lanjut = scanner.nextInt();
                     
                     if (lanjut==1) {
@@ -103,59 +110,64 @@ public class pengiriman {
                             System.out.println("Tujuan      : " + alamatPenerima);
                             System.out.println("Keterangan  : " +beratPaket+" gram "+jarakPengiriman+" km");
                             System.out.println("Biaya       : " + biayaPengiriman);
-                            System.out.println("No Resi     : " + resiReguler );
-                            String rgl = "RGL01";
-                            int rgl1 = Integer.parseInt(rgl);
+
+                            int resiRGL;
+                            int rgl = 1101;
                             int isiResi1 = (int) jarakPengiriman;
                             int isiResi2 = (int) beratPaket;
-                            int resiReguler;
-                            resiReguler = rgl1 + isiResi1 + isiResi2;
+                            resiRGL = isiResi1*isiResi2;
+
+                            System.out.println("No Resi     : " + rgl+resiRGL);
+                            break;
                             
                         } else {
-                            double biayaPengiriman1 = biayaPengiriman + biayaPengiriman * 50/100;
+                            double biayaPengiriman2 = biayaPengiriman + biayaPengiriman * 50/100;
                             System.out.println("Pengirim    : " + namaPengirim);
                             System.out.println("Penerima    : " + namaPenerima);
                             System.out.println("Tujuan      : " + alamatPenerima);
                             System.out.println("Keterangan  : " +beratPaket+" gram "+jarakPengiriman+" km");
-                            System.out.println("Biaya       : " + biayaPengiriman1);
-                            System.out.println("No Resi     : " + resiExprex );
-                            String exr = "EXR";
-                            int exr2 = Integer.parseInt(exr);
-                            int kode = 02;
+                            System.out.println("Biaya       : " + biayaPengiriman2);
+
+                            int exr = 2202;
                             int isiResi11 = (int) jarakPengiriman;
                             int isiResi22 = (int) beratPaket;
-                            int resiExpres;
-                            resiExpres = exr2 + kode + isiResi11 + isiResi22;
-                            
+                            int resiExpres = isiResi11*isiResi22;
+
+                            System.out.println("No Resi     : " +exr+resiExpres );
+                            break;
 
                         }
-                        on = false;
                     } else {
                         System.out.println("Transaksi gagal");
+                        break;
                     }
-                    break;
                     
-                case 2:
-                    
+                }else if (choice == 2){
+                break;
                   
                 
-                    break;
-                case 3:
+        
+                }else if (choice == 3){
                     // Pilihan 3: Riwayat pembelian
-                    
-                    
-                    break;
-                case 4:
-                on = false;
                 break;
-                default:
+                
+                }else if (choice == 4){
+                break;
+                
+                }else
                     System.out.println("Pilihan tidak valid.");
                     break;
-            }
-        }while(on);
+                
+            }while(on);
+            break;
         } else {
             System.out.println("Login gagal. Nama pengguna atau kata sandi salah.");
+            break;
         }
-    }while (on);
+        }
+        }while (on);  
+        
     }
-    }
+}
+
+

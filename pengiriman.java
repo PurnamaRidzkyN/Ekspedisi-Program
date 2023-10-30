@@ -3,36 +3,44 @@ import java.util.Scanner;
 public class pengiriman {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        
         boolean on = true;
-        // Proses login
+
+        // Array dalam Login
+        String[] username = {"admin", "adm"};
+        String[] password = {"oke", "betul"};
+
         do {
-            System.out.println ("Akun yang anda masukkan akan menampilkan pekerjaan anda");
+            System.out.println("Akun yang Anda masukkan akan menampilkan pekerjaan Anda");
             System.out.print("Masukkan nama pengguna: ");
             String user = scanner.nextLine();
             System.out.print("Masukkan kata sandi: ");
             String pass = scanner.nextLine();
-            
-            //Array dalam Login
-            String username []={"admin", "adm"};
-            String password []={"oke", "betul"};
+
+            boolean loginBerhasil = false;
+
             for (int i = 0; i < username.length; i++) {
-                
-            if (user.equalsIgnoreCase(username[i]) && pass.equalsIgnoreCase(password[i])) {
-                System.out.println("Login berhasil!");
+                if (user.equalsIgnoreCase(username[i]) && pass.equals(password[i])) {
+                    System.out.println("Login berhasil!");
+                    loginBerhasil = true;
+                    break;
+                }
+            }
 
-            // Menampilkan pilihan setelah login berhasil
-            do {
-            System.out.println("Pilih tindakan:");
-            System.out.println("1. Mengirim paket");
-            System.out.println("2. Melacak paket");
-            System.out.println("3. Riwayat pembelian");
-            System.out.println("4. keluar ");
-            System.out.print("Pilihan Anda: ");
-            int choice = scanner.nextInt();
-            
+            if (loginBerhasil) {
+                while (true) {
+                    System.out.println("Pilih tindakan:");
+                    System.out.println("1. Mengirim paket");
+                    System.out.println("2. Melacak paket");
+                    System.out.println("3. Riwayat pembelian");
+                    System.out.println("4. Keluar");
+                    System.out.print("Pilihan Anda: ");
+                    int choice = scanner.nextInt();
+                    scanner.nextLine(); 
 
-                if (choice == 1){
+                    if (choice == 1) {
+                    boolean button = true;
+                    while (button) {
+                        
                     // Pilihan 1: Mengirim paket
                     Scanner sc = new Scanner(System.in);
 
@@ -100,7 +108,7 @@ public class pengiriman {
                     
                     if (lanjut==1) {
                         System.out.println("Transaksi berhasil ");
-
+                        
                         //Menampilkan Resi
                         if (layanan==1){
                             System.out.println("Pengirim    : " + namaPengirim);
@@ -116,7 +124,7 @@ public class pengiriman {
                             String resiRGL = rgl+isiResi1*isiResi2;
 
                             System.out.println("No Resi     : " +resiRGL);
-                            break;
+                            
                             
                         } else {
                             double biayaPengiriman2 = biayaPengiriman + biayaPengiriman * 50/100;
@@ -131,35 +139,46 @@ public class pengiriman {
                             int isiResi22 = (int) beratPaket;
                             String resiExpres = exr+isiResi11 + isiResi22;
                             System.out.println("No Resi     : "+resiExpres);
+                            
+                            
                         }
-                    } else {
-                        System.out.println("Transaksi gagal");
-                        break;
-                    }
                     
                 
+                    } else {
+                        System.out.println("Transaksi gagal");
+                        
+                        
+                    }
+                     System.out.print("Mau buat pengiriman baru (y/n)? ");
+                            String kirim = sc.next();
+                            if (kirim.equalsIgnoreCase("y")){
+                                button = true;
+                            }else {
+                                button = false;
+                                break;
+                            }
+                }
+                
         
-                }else if (choice == 2){
-                    // Pilihan 3: Riwayat pembelian
-                break;
-                
-                }else if (choice == 3){
-                break;
-                
-                }else if (choice == 4) {
-                    break;
-                }else {
-                    System.out.println("Pilihan tidak valid.");
+                    } else if (choice == 2) {
+                        // ... Bagian untuk melacak paket ...
+                    } else if (choice == 3) {
+                        // ... Bagian untuk riwayat pembelian ...
+                    } else if (choice == 4) {
+                        break;
+                    } else {
+                        System.out.println("Pilihan tidak valid.");
+                    }
+                }
+
+                System.out.print("Ingin melakukan transaksi lagi? (y/n): ");
+                String ulangi = scanner.nextLine();
+                if (!ulangi.equals("y")) {
                     break;
                 }
-            }while(on);
-            break;
-        } else {
-            System.out.println("Login gagal. Nama pengguna atau kata sandi salah.");
-        }
-    }
-    }while (on);
+            } else {
+                System.out.println("Login gagal. Nama pengguna atau kata sandi salah.");
+            }
+        } while (on);
     }
 }
-
-

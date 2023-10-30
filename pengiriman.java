@@ -1,7 +1,5 @@
 import java.util.Scanner;
 
-import javafx.scene.control.TableView.ResizeFeatures;
-
 public class pengiriman {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -34,7 +32,7 @@ public class pengiriman {
             int choice = scanner.nextInt();
             
 
-                    if (choice == 1){
+                if (choice == 1){
                     // Pilihan 1: Mengirim paket
                     Scanner sc = new Scanner(System.in);
 
@@ -74,8 +72,8 @@ public class pengiriman {
                     double diskon = 0;
 
                     
-                    if (layanan==1){
-                    if (jarakPengiriman > 1000) {
+                        if (layanan==1){
+                        if (jarakPengiriman > 1000) {
                         if (beratPaket < 2000) {
                             if (dimensi < 600) {
                                 diskon = 3*0.05;
@@ -110,14 +108,14 @@ public class pengiriman {
                             System.out.println("Tujuan      : " + alamatPenerima);
                             System.out.println("Keterangan  : " +beratPaket+" gram "+jarakPengiriman+" km");
                             System.out.println("Biaya       : " + biayaPengiriman);
-
-                            int resiRGL;
-                            int rgl = 1101;
+                            //format resi reguler
+                            
+                            String rgl = "RGL01";
                             int isiResi1 = (int) jarakPengiriman;
                             int isiResi2 = (int) beratPaket;
-                            resiRGL = isiResi1*isiResi2;
+                            String resiRGL = rgl+isiResi1*isiResi2;
 
-                            System.out.println("No Resi     : " + rgl+resiRGL);
+                            System.out.println("No Resi     : " +resiRGL);
                             break;
                             
                         } else {
@@ -127,46 +125,40 @@ public class pengiriman {
                             System.out.println("Tujuan      : " + alamatPenerima);
                             System.out.println("Keterangan  : " +beratPaket+" gram "+jarakPengiriman+" km");
                             System.out.println("Biaya       : " + biayaPengiriman2);
-
-                            int exr = 2202;
+                            //format resi express
+                            String exr = "EXR02";
                             int isiResi11 = (int) jarakPengiriman;
                             int isiResi22 = (int) beratPaket;
-                            int resiExpres = isiResi11*isiResi22;
-
-                            System.out.println("No Resi     : " +exr+resiExpres );
-                            break;
-
+                            String resiExpres = exr+isiResi11 + isiResi22;
+                            System.out.println("No Resi     : "+resiExpres);
                         }
                     } else {
                         System.out.println("Transaksi gagal");
                         break;
                     }
                     
-                }else if (choice == 2){
-                break;
-                  
                 
         
-                }else if (choice == 3){
+                }else if (choice == 2){
                     // Pilihan 3: Riwayat pembelian
                 break;
                 
-                }else if (choice == 4){
+                }else if (choice == 3){
                 break;
                 
-                }else
+                }else if (choice == 4) {
+                    break;
+                }else {
                     System.out.println("Pilihan tidak valid.");
                     break;
-                
+                }
             }while(on);
             break;
         } else {
             System.out.println("Login gagal. Nama pengguna atau kata sandi salah.");
-            break;
         }
-        }
-        }while (on);  
-        
+    }
+    }while (on);
     }
 }
 

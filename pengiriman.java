@@ -28,6 +28,9 @@ public class pengiriman {
 
             if (loginBerhasil) {
                 while (true) {
+                 double [][] dataPaket = new double[4][];
+                 String [][] dataPengiriman = new String[7][]; 
+
                     System.out.println("Pilih tindakan:");
                     System.out.println("1. Mengirim paket");
                     System.out.println("2. Melacak paket");
@@ -36,6 +39,8 @@ public class pengiriman {
                     System.out.print("Pilihan Anda: ");
                     int choice = scanner.nextInt();
                     scanner.nextLine(); 
+                    int i = 0;
+                    int j = 0;
 
                     if (choice == 1) {
                     boolean button = true;
@@ -53,6 +58,10 @@ public class pengiriman {
                     String alamatPengirim = sc.nextLine();
                     System.out.print("Masukkan alamat penerima  : ");
                     String alamatPenerima = sc.nextLine();
+                    System.out.print("Masukkan no hp pengirim   :");
+                    String noHpPengirim = sc.nextLine();
+                    System.out.print("Masukkan no hp penerima   :");
+                    String noHpPenerima = sc.nextLine();
 
                     // Proses penghitungan biaya pengiriman
                     double beratPaket;
@@ -108,31 +117,34 @@ public class pengiriman {
                     
                     if (lanjut==1) {
                         System.out.println("Transaksi berhasil ");
-                        
+
                         //Menampilkan Resi
                         if (layanan==1){
-                            System.out.println("Pengirim    : " + namaPengirim);
-                            System.out.println("Penerima    : " + namaPenerima);
-                            System.out.println("Tujuan      : " + alamatPenerima);
-                            System.out.println("Keterangan  : " +beratPaket+" gram "+jarakPengiriman+" km");
-                            System.out.println("Biaya       : " + biayaPengiriman);
+                            System.out.println("Pengirim        : " + namaPengirim);
+                            System.out.println("No Hp pengirim  : " + noHpPengirim);
+                            System.out.println("Penerima        : " + namaPenerima);
+                            System.out.println("No Hp Penerima  : " + noHpPenerima);
+                            System.out.println("Tujuan          : " + alamatPenerima);
+                            System.out.println("Keterangan      : " +beratPaket+" gram "+jarakPengiriman+" km");
+                            System.out.println("Biaya           : " + biayaPengiriman);
+
                             //format resi reguler
-                            
                             String rgl = "RGL01";
                             int isiResi1 = (int) jarakPengiriman;
                             int isiResi2 = (int) beratPaket;
                             String resiRGL = rgl+isiResi1*isiResi2;
-
                             System.out.println("No Resi     : " +resiRGL);
                             
                             
                         } else {
                             double biayaPengiriman2 = biayaPengiriman + biayaPengiriman * 50/100;
-                            System.out.println("Pengirim    : " + namaPengirim);
-                            System.out.println("Penerima    : " + namaPenerima);
-                            System.out.println("Tujuan      : " + alamatPenerima);
-                            System.out.println("Keterangan  : " +beratPaket+" gram "+jarakPengiriman+" km");
-                            System.out.println("Biaya       : " + biayaPengiriman2);
+                            System.out.println("Pengirim        : " + namaPengirim);
+                            System.out.println("No Hp Pengirim  : " +noHpPengirim);
+                            System.out.println("Penerima        : " + namaPenerima);
+                            System.out.println("No Hp Penerima  : "+noHpPenerima);
+                            System.out.println("Tujuan          : " + alamatPenerima);
+                            System.out.println("Keterangan      : " +beratPaket+" gram "+jarakPengiriman+" km");
+                            System.out.println("Biaya           : " + biayaPengiriman2);
                             //format resi express
                             String exr = "EXR02";
                             int isiResi11 = (int) jarakPengiriman;
@@ -142,7 +154,19 @@ public class pengiriman {
                             
                             
                         }
-                    
+                    // memasukkan array 2 dimensi
+                    dataPengiriman[i][j] = namaPengirim;
+                    dataPengiriman[i+1][j] = noHpPengirim;
+                    dataPengiriman[i+2][j] = namaPenerima;
+                    dataPengiriman[i+3][j] = noHpPenerima;
+                    dataPengiriman[i+4][j] = alamatPenerima;
+                    dataPengiriman[i+5][j] = resiExpres;
+                    dataPengiriman[i+6][j] = resiRGL;
+                    dataPaket[i][j] = biayaPengiriman;
+                    dataPaket[i+1][j] = biayaPengiriman1;
+                    dataPaket[i+2][j] = beratPaket;
+                    dataPaket[i+3][j] = jarakPengiriman;
+
                 
                     } else {
                         System.out.println("Transaksi gagal");

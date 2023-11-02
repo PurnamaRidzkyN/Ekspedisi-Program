@@ -165,17 +165,16 @@ public class pengiriman {
                     } else if (choice == 3) {
                         // ... Bagian untuk riwayat pembelian ...
                     } else if (choice == 4) {
+                        System.out.println("Anda telah keluar ");
                         break;
+
                     } else {
                         System.out.println("Pilihan tidak valid.");
                     }
                 }
 
-                System.out.print("Ingin melakukan transaksi lagi? (y/n): ");
-                String ulangi = scanner.nextLine();
-                if (!ulangi.equals("y")) {
-                    break;
-                }
+              
+                
             } else {
                 System.out.println("Login gagal. Nama pengguna atau kata sandi salah.");
             }

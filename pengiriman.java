@@ -8,9 +8,11 @@ public class pengiriman {
         double [][] dataPaket = new double[4][maxData];
         String [][] dataPengiriman = new String[6][maxData];
 
-        // Array dalam Login
-        String[] username = {"admin", "adm"};
-        String[] password = {"oke", "betul"};
+        // Login
+        String[][] loginData = {
+        {"admin1", "adm1"},
+        {"admin2", "adm2"}
+    };
 
         do {
             System.out.println("Akun yang Anda masukkan akan menampilkan pekerjaan Anda");
@@ -21,8 +23,11 @@ public class pengiriman {
 
             boolean loginBerhasil = false;
 
-            for (int i = 0; i < username.length; i++) {
-                if (user.equalsIgnoreCase(username[i]) && pass.equals(password[i])) {
+            for (int i = 0; i < loginData.length; i++) {
+                String username = loginData [i][0];
+                String password = loginData [i][1];
+
+                if (user.equalsIgnoreCase(username) && pass.equals(password)) {
                     System.out.println("Login berhasil!");
                     loginBerhasil = true;
                

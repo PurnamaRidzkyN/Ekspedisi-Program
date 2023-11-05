@@ -169,6 +169,10 @@ public class pengiriman {
                             
                             
                         }
+
+                        if ( biayaPengiriman1 != 0){
+                            biayaPengiriman= biayaPengiriman1;
+                        }
                     // memasukkan array 2 dimensi
                     dataPengiriman[b][k] = namaPengirim;
                     dataPengiriman[b+1][k] = noHpPengirim;
@@ -178,9 +182,8 @@ public class pengiriman {
                     dataPengiriman[b+5][k] = resi;
                     
                     dataPaket[b][k] = biayaPengiriman;
-                    dataPaket[b+1][k] = biayaPengiriman1;
-                    dataPaket[b+2][k] = beratPaket;
-                    dataPaket[b+3][k] = jarakPengiriman;
+                    dataPaket[b+1][k] = beratPaket;
+                    dataPaket[b+2][k] = jarakPengiriman;
                     k++;
                     
                     
@@ -228,11 +231,13 @@ public class pengiriman {
                                     System.out.println("No Resi: " + dataPengiriman[b+5][i]);
                                 
                                     System.out.println("Biaya Pengiriman: " + dataPaket[b][i]);
-                                    System.out.println("Biaya Pengiriman 1: " + dataPaket[b+1][i]);
-                                    System.out.println("Berat Paket: " + dataPaket[b+2][i]);
-                                    System.out.println("Jarak Pengiriman: " + dataPaket[b+3][i]);
+                                    System.out.println("Berat Paket: " + dataPaket[b+1][i]);
+                                    System.out.println("Jarak Pengiriman: " + dataPaket[b+2][i]);
                                     search= false;
                                 break;                            
+                            }else{
+                                System.out.println("Riwayat tidak di temukan ");
+                                break;
                             }
                             }
                         } else if (pil == 2) {
@@ -249,11 +254,13 @@ public class pengiriman {
                                     System.out.println("No Resi: " + dataPengiriman[b+5][i]);
                                 
                                     System.out.println("Biaya Pengiriman: " + dataPaket[b][i]);
-                                    System.out.println("Biaya Pengiriman 1: " + dataPaket[b+1][i]);
-                                    System.out.println("Berat Paket: " + dataPaket[b+2][i]);
-                                    System.out.println("Jarak Pengiriman: " + dataPaket[b+3][i]);
+                                    System.out.println("Berat Paket: " + dataPaket[b+1][i]);
+                                    System.out.println("Jarak Pengiriman: " + dataPaket[b+2][i]);
                                     search= false;
                                 break;                                                       
+                            }else{
+                                System.out.println("Riwayat tidak di temukan ");
+                                break;
                             }
                             }
                         } else if (pil == 3) {
@@ -270,11 +277,13 @@ public class pengiriman {
                                     System.out.println("No Resi: " + dataPengiriman[b+5][i]);
                                 
                                     System.out.println("Biaya Pengiriman: " + dataPaket[b][i]);
-                                    System.out.println("Biaya Pengiriman 1: " + dataPaket[b+1][i]);
-                                    System.out.println("Berat Paket: " + dataPaket[b+2][i]);
-                                    System.out.println("Jarak Pengiriman: " + dataPaket[b+3][i]);
+                                    System.out.println("Berat Paket: " + dataPaket[b+1][i]);
+                                    System.out.println("Jarak Pengiriman: " + dataPaket[b+2][i]);
                                     search= false;
                                 break;                            
+                            }else{
+                                System.out.println("Riwayat tidak di temukan ");
+                                break;
                             }
                             }
                         } else if (pil == 4) {
@@ -291,10 +300,12 @@ public class pengiriman {
                                     System.out.println("No Resi: " + dataPengiriman[b+5][i]);
                                 
                                     System.out.println("Biaya Pengiriman: " + dataPaket[b][i]);
-                                    System.out.println("Biaya Pengiriman 1: " + dataPaket[b+1][i]);
-                                    System.out.println("Berat Paket: " + dataPaket[b+2][i]);
-                                    System.out.println("Jarak Pengiriman: " + dataPaket[b+3][i]);
+                                    System.out.println("Berat Paket: " + dataPaket[b+1][i]);
+                                    System.out.println("Jarak Pengiriman: " + dataPaket[b+2][i]);
                                     search= false;
+                                break;
+                            }else{
+                                System.out.println("Riwayat tidak di temukan ");
                                 break;
                             }
                             }
@@ -312,10 +323,12 @@ public class pengiriman {
                                     System.out.println("No Resi: " + dataPengiriman[b+5][i]);
                                 
                                     System.out.println("Biaya Pengiriman: " + dataPaket[b][i]);
-                                    System.out.println("Biaya Pengiriman 1: " + dataPaket[b+1][i]);
-                                    System.out.println("Berat Paket: " + dataPaket[b+2][i]);
-                                    System.out.println("Jarak Pengiriman: " + dataPaket[b+3][i]);
+                                    System.out.println("Berat Paket: " + dataPaket[b+1][i]);
+                                    System.out.println("Jarak Pengiriman: " + dataPaket[b+2][i]);
                                     search= false;
+                                break;
+                            }else{
+                                System.out.println("Riwayat tidak di temukan ");
                                 break;
                             }
                             }
@@ -333,10 +346,12 @@ public class pengiriman {
                                     System.out.println("No Resi: " + dataPengiriman[b+5][i]);
                                 
                                     System.out.println("Biaya Pengiriman: " + dataPaket[b][i]);
-                                    System.out.println("Biaya Pengiriman 1: " + dataPaket[b+1][i]);
-                                    System.out.println("Berat Paket: " + dataPaket[b+2][i]);
-                                    System.out.println("Jarak Pengiriman: " + dataPaket[b+3][i]);
+                                    System.out.println("Berat Paket: " + dataPaket[b+1][i]);
+                                    System.out.println("Jarak Pengiriman: " + dataPaket[b+2][i]);
                                     search= false;
+                                break;
+                            }else{
+                                System.out.println("Riwayat tidak di temukan ");
                                 break;
                             }
                             }

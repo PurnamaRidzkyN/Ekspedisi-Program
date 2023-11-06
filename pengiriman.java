@@ -3,7 +3,6 @@ import java.util.Scanner;
 public class pengiriman {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        boolean on = true;
 
         // inisiasi untuk riwayat 
         int k = 0;
@@ -24,13 +23,15 @@ public class pengiriman {
 
         do {
             System.out.println("Akun yang Anda masukkan akan menampilkan pekerjaan Anda");
-            System.out.print("Masukkan nama pengguna: ");
+            System.out.print("Masukkan nama pengguna(q untuk keluar): ");
             String user = scanner.nextLine();
-            System.out.print("Masukkan kata sandi: ");
+            System.out.print("Masukkan kata sandi(q untuk keluar): ");
             String pass = scanner.nextLine();
 
             boolean loginBerhasil = false;
-
+            if(user.equalsIgnoreCase("q")||pass.equalsIgnoreCase("q")){
+                break;
+            }
             for (int i = 0; i < loginData.length; i++) {
                 String username = loginData [i][0];
                 String password = loginData [i][1];
@@ -207,6 +208,7 @@ public class pengiriman {
                     } else if (choice == 2) {
                         // ... Bagian untuk melacak paket ...
                     } else if (choice == 3) {
+                        while (true) {
                         // ... Bagian untuk riwayat pembelian ...
                         System.out.println("1.Lewat nama pengirim  ");
                         System.out.println("2.Lewat no Hp pengirim  ");
@@ -215,6 +217,7 @@ public class pengiriman {
                         System.out.println("5.Lewat alamat penerima ");
                         System.out.println("6.Lewat no resi ");
                         System.out.println("7.Jumlah riwayat");
+                        System.out.println("8.Kembali");
                         System.out.print("masukan pilihan anda :");
                         int pil = scanner.nextInt();
                         if (pil==1){
@@ -357,7 +360,10 @@ public class pengiriman {
                             }
                         }else if (pil==7){
                             System.out.println(k);
+                        }else if (pil==8){
+                            break;
                         }
+                    }
                     } else if (choice == 4) {
                         System.out.println("Anda telah keluar ");
                         break;
@@ -372,7 +378,7 @@ public class pengiriman {
             } else {
                 System.out.println("Login gagal. Nama pengguna atau kata sandi salah.");
             }
-        } while (on);
+        } while (true);
     }
 }
 

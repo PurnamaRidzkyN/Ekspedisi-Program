@@ -4,7 +4,7 @@ public class pengiriman {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        // inisiasi untuk riwayat 
+        // inisilisasi untuk riwayat 
         int k = 0;
         int b = 0;
         
@@ -169,7 +169,7 @@ public class pengiriman {
                             biayaPengiriman= biayaPengiriman1;
                         }
 
-                    // memasukkan array 2 dimensi
+                    // memasukkan array 2 dimensi resi
                     dataPengiriman[b][k] = namaPengirim;
                     dataPengiriman[b+1][k] = noHpPengirim;
                     dataPengiriman[b+2][k] = namaPenerima;
@@ -198,6 +198,7 @@ public class pengiriman {
                 
                     } else if (choice == 2) {
                         // ... Bagian untuk melacak paket ...
+
                     } else if (choice == 3) {
                         while (true) {
                         // ... Bagian untuk riwayat pembelian ...
@@ -388,7 +389,8 @@ public class pengiriman {
                             
 
                         }else if (pil==7){
-                            System.out.println(k);
+                            System.err.println("Jumlah Transaksi : " + k);
+                            System.out.println("======================================");
 
                         }else if (pil==8){
                             System.out.println("Menampilkan semua riwayat:");
@@ -408,6 +410,7 @@ public class pengiriman {
                             }
 
                             }else if (pil==9){
+                                System.out.println("====================================");
                                 break;
                             }
                         }

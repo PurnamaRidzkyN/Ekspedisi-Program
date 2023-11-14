@@ -4,7 +4,7 @@ public class pengiriman {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        // inisilisasi untuk riwayat 
+        // inisilisasi untuk riwayat
         int k = 0;
         int b = 0;
         
@@ -12,6 +12,7 @@ public class pengiriman {
         int maxData = 100;
         double [][] dataPaket = new double[4][maxData];
         String [][] dataPengiriman = new String[6][maxData];
+        String  [] tempRiwayat = {"Nama Pengirim : "};
  
         // Login
         String[][] loginData = {
@@ -395,18 +396,12 @@ public class pengiriman {
                         }else if (pil==8){
                             System.out.println("Menampilkan semua riwayat:");
                             System.out.println("======================================");
-                            for (int i = 0; i < k; i++) {
-                                System.out.println("Riwayat ke-" + (i + 1) + ":");
-                                System.out.println("Nama Pengirim    : " + dataPengiriman[b][i]);
-                                System.out.println("No Hp Pengirim   : " + dataPengiriman[b + 1][i]);
-                                System.out.println("Nama Penerima    : " + dataPengiriman[b + 2][i]);
-                                System.out.println("No Hp Penerima   : " + dataPengiriman[b + 3][i]);
-                                System.out.println("Alamat Penerima  : " + dataPengiriman[b + 4][i]);
-                                System.out.println("No Resi          : " + dataPengiriman[b + 5][i]);
-                                System.out.println("Biaya Pengiriman : " + dataPaket[b][i]);
-                                System.out.println("Berat Paket      : " + dataPaket[b + 1][i]);
-                                System.out.println("Jarak Pengiriman : " + dataPaket[b + 2][i]);
-                                System.out.println("-----------------------------------");
+                            for (int i = 0; i < dataPengiriman.length; i++) {
+                                for (int j = 0; j < dataPengiriman[i].length; j++) {
+                                    for (int l = 0; l < template.length; l++) {
+                                        System.out.println(template[l]+dataPengiriman[i+l][l]);
+                                    }
+                                }
                             }
 
                             }else if (pil==9){

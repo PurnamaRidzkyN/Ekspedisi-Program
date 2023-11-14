@@ -12,7 +12,8 @@ public class pengiriman {
         int maxData = 100;
         double [][] dataPaket = new double[4][maxData];
         String [][] dataPengiriman = new String[6][maxData];
-        String  [] tempRiwayat = {"Nama Pengirim : "};
+        String  [] tempRiwayat = 
+        {"Nama Pengirim       : " ,"No Hp Pengirim      : " ,"Nama Penerima       : " ,"No Hp Penerima      : " ,"Alamat Penerima     : " ,"No Resi             : " ,"Biaya Pengiriman    : " ,"Berat Paket         : " ,"Jarak Pengiriman    : "};
  
         // Login
         String[][] loginData = {
@@ -21,10 +22,9 @@ public class pengiriman {
     };
 
         do {
-            System.out.println("Akun yang Anda masukkan akan menampilkan pekerjaan Anda");
-            System.out.print("Masukkan nama pengguna(q untuk keluar): ");
+            System.out.print("Masukkan nama pengguna (q untuk keluar): ");
             String user = scanner.nextLine();
-            System.out.print("Masukkan kata sandi(q untuk keluar): ");
+            System.out.print("Masukkan kata sandi (q untuk keluar)   : ");
             String pass = scanner.nextLine();
 
             boolean loginBerhasil = false;
@@ -36,7 +36,9 @@ public class pengiriman {
                 String password = loginData [i][1];
 
                 if (user.equalsIgnoreCase(username) && pass.equals(password)) {
+                    System.out.println("======================================");
                     System.out.println("Login berhasil!");
+                    System.out.println("======================================");
                     loginBerhasil = true;
                
                     break;
@@ -50,7 +52,7 @@ public class pengiriman {
                     System.out.println("2. Melacak paket");
                     System.out.println("3. Riwayat pembelian");
                     System.out.println("4. Keluar");
-                    System.out.print("Pilihan Anda: ");
+                    System.out.print("Pilihan Anda : ");
                     int choice = scanner.nextInt();
                     scanner.nextLine(); 
                     
@@ -62,6 +64,7 @@ public class pengiriman {
                     Scanner sc = new Scanner(System.in);
 
                     // Input data pengirim
+                    System.out.println("======================================");
                     System.out.print("Masukkan nama pengirim    : ");
                     String namaPengirim = sc.nextLine();
                     System.out.print("Masukkan nama penerima    : ");
@@ -92,10 +95,11 @@ public class pengiriman {
                     double biayaPengiriman = beratPaket * 10 + jarakPengiriman * 5 + panjang * 5 + lebar * 5 + tinggi * 5;
 
                     //Layanan Pengiriman
+                    System.out.println("======================================");
                     System.out.println("Pilih layanan pengiriman yang digunakan");
                     System.out.println("1. Reguler");
                     System.out.println("2. Express");
-                    System.out.println("Pilih dengan memasukan angka sesuai pilihan");
+                    System.out.print("Pilihan Anda : ");
                     int layanan = scanner.nextInt();
                     double dimensi = panjang * lebar * tinggi;
                     double diskon = 0;
@@ -116,6 +120,7 @@ public class pengiriman {
                         biayaPengiriman = biayaPengiriman + biayaPengiriman * 50/100;
                     } 
                     double biayaPengiriman1 = biayaPengiriman - (biayaPengiriman * diskon);
+                    System.out.println("======================================");
                     System.out.println("Nama pengirim           : " + namaPengirim);
                     System.out.println("Nama penerima           : " + namaPenerima);
                     System.out.println("Alamat pengirim         : " + alamatPengirim);
@@ -123,22 +128,26 @@ public class pengiriman {
                     System.out.println("Biaya pengiriman        : " + biayaPengiriman1);
                     System.out.println("Diskon yang di dapat    : " + diskon);
 
+                    System.out.println("======================================");
                     System.out.println("Apakah anda ingin melanjutkan pengiriman? \n 1. Iya \n 2. Tidak");
+                    System.out.print("Pilihan Anda : ");
                     int lanjut = scanner.nextInt();
                     
                     if (lanjut==1) {
-                        System.out.println("Transaksi berhasil ");
+                        System.out.println("======================================");
+                        System.out.println("Transaksi berhasil! ");
                         String resi;
                         
 
                         //Menampilkan Resi
                         if (layanan==1){
+                            System.out.println("======================================");
                             System.out.println("Pengirim        : " + namaPengirim);
                             System.out.println("No Hp pengirim  : " + noHpPengirim);
                             System.out.println("Penerima        : " + namaPenerima);
                             System.out.println("No Hp Penerima  : " + noHpPenerima);
                             System.out.println("Tujuan          : " + alamatPenerima);
-                            System.out.println("Keterangan      : " +beratPaket+" gram "+jarakPengiriman+" km");
+                            System.out.println("Keterangan      : " + beratPaket+" gram "+jarakPengiriman+" km");
                             System.out.println("Biaya           : " + biayaPengiriman);
 
                             //format resi reguler
@@ -150,12 +159,13 @@ public class pengiriman {
                             
                         } else {
                             double biayaPengiriman2 = biayaPengiriman + biayaPengiriman * 50/100;
+                            System.out.println("======================================");
                             System.out.println("Pengirim        : " + namaPengirim);
-                            System.out.println("No Hp Pengirim  : " +noHpPengirim);
+                            System.out.println("No Hp Pengirim  : " + noHpPengirim);
                             System.out.println("Penerima        : " + namaPenerima);
-                            System.out.println("No Hp Penerima  : "+noHpPenerima);
+                            System.out.println("No Hp Penerima  : " + noHpPenerima);
                             System.out.println("Tujuan          : " + alamatPenerima);
-                            System.out.println("Keterangan      : " +beratPaket+" gram "+jarakPengiriman+" km");
+                            System.out.println("Keterangan      : " + beratPaket+" gram "+ jarakPengiriman+" km");
                             System.out.println("Biaya           : " + biayaPengiriman2);
                             //format resi express
                             String exr = "EXR02";
@@ -203,6 +213,7 @@ public class pengiriman {
                     } else if (choice == 3) {
                         while (true) {
                         // ... Bagian untuk riwayat pembelian ...
+                        System.out.println("======================================");
                         System.out.println("1.Lewat nama pengirim  ");
                         System.out.println("2.Lewat no Hp pengirim  ");
                         System.out.println("3.Lewat nama penerima ");
@@ -212,25 +223,25 @@ public class pengiriman {
                         System.out.println("7.Jumlah riwayat");
                         System.out.println("8.Menampilkan riwayat");
                         System.out.println("9.Kembali");
-                        System.out.print("masukan pilihan anda :");
+                        System.out.print("Pilihan Anda : ");
                         int pil = scanner.nextInt();
                         if (pil==1){
                             System.out.print("Masukan nama pengirim : ");
                             String namaPengirim = scanner.next();
-                            System.out.println("===================================");
+                            System.out.println("======================================");
                             boolean riwayatDitemukan = false;
                             for(int i = 0; i<k; i++){
                                 for(int j=0; j<dataPengiriman.length; j++) {
                                 if (namaPengirim.equalsIgnoreCase(dataPengiriman[0][i])){
-                                    System.out.println("Nama Pengirim: " + dataPengiriman[b][i]);
-                                    System.out.println("No Hp Pengirim: " + dataPengiriman[b+1][i]);
-                                    System.out.println("Nama Penerima: " + dataPengiriman[b+2][i]);
-                                    System.out.println("No Hp Penerima: " + dataPengiriman[b+3][i]);
-                                    System.out.println("Alamat Penerima: " + dataPengiriman[b+4][i]);
-                                    System.out.println("No Resi: " + dataPengiriman[b+5][i]);                                
-                                    System.out.println("Biaya Pengiriman: " + dataPaket[b][i]);
-                                    System.out.println("Berat Paket: " + dataPaket[b+1][i]);
-                                    System.out.println("Jarak Pengiriman: " + dataPaket[b+2][i]);
+                                    System.out.println("Nama Pengirim    : " + dataPengiriman[b][i]);
+                                    System.out.println("No Hp Pengirim   : " + dataPengiriman[b+1][i]);
+                                    System.out.println("Nama Penerima    : " + dataPengiriman[b+2][i]);
+                                    System.out.println("No Hp Penerima   : " + dataPengiriman[b+3][i]);
+                                    System.out.println("Alamat Penerima  : " + dataPengiriman[b+4][i]);
+                                    System.out.println("No Resi          : " + dataPengiriman[b+5][i]);                                
+                                    System.out.println("Biaya Pengiriman : " + dataPaket[b][i]);
+                                    System.out.println("Berat Paket      : " + dataPaket[b+1][i]);
+                                    System.out.println("Jarak Pengiriman : " + dataPaket[b+2][i]);
                                     riwayatDitemukan = true;                                
                                     break;
                                     }                            
@@ -246,20 +257,20 @@ public class pengiriman {
                         } else if (pil == 2) {
                             System.out.print("Masukan no hp pengirim : ");
                             String nomorPengirim = scanner.next();
-                            System.out.println("===================================");
+                            System.out.println("======================================");
                             boolean riwayatDitemukan = false;                      
                             for(int i = 0; i<dataPengiriman[1].length; i++){ 
                                 for (int j=0; j<dataPengiriman.length; j++) {
                                     if (nomorPengirim.equalsIgnoreCase(dataPengiriman[1][i])){
-                                    System.out.println("Nama Pengirim: " + dataPengiriman[b][i]);
-                                    System.out.println("No Hp Pengirim: " + dataPengiriman[b+1][i]);
-                                    System.out.println("Nama Penerima: " + dataPengiriman[b+2][i]);
-                                    System.out.println("No Hp Penerima: " + dataPengiriman[b+3][i]);
-                                    System.out.println("Alamat Penerima: " + dataPengiriman[b+4][i]);
-                                    System.out.println("No Resi: " + dataPengiriman[b+5][i]);
-                                    System.out.println("Biaya Pengiriman: " + dataPaket[b][i]);
-                                    System.out.println("Berat Paket: " + dataPaket[b+1][i]);
-                                    System.out.println("Jarak Pengiriman: " + dataPaket[b+2][i]);
+                                    System.out.println("Nama Pengirim    : " + dataPengiriman[b][i]);
+                                    System.out.println("No Hp Pengirim   : " + dataPengiriman[b+1][i]);
+                                    System.out.println("Nama Penerima    : " + dataPengiriman[b+2][i]);
+                                    System.out.println("No Hp Penerima   : " + dataPengiriman[b+3][i]);
+                                    System.out.println("Alamat Penerima  : " + dataPengiriman[b+4][i]);
+                                    System.out.println("No Resi          : " + dataPengiriman[b+5][i]);
+                                    System.out.println("Biaya Pengiriman : " + dataPaket[b][i]);
+                                    System.out.println("Berat Paket      : " + dataPaket[b+1][i]);
+                                    System.out.println("Jarak Pengiriman : " + dataPaket[b+2][i]);
                                     riwayatDitemukan = true;
                                     break; 
                                 }                                                                                
@@ -275,20 +286,20 @@ public class pengiriman {
                         } else if (pil == 3) {
                             System.out.print("Masukan nama penerima : ");
                             String namaPenerima = scanner.next();
-                            System.out.println("===================================");
+                            System.out.println("======================================");
                             boolean riwayatDitemukan = false;
                             for(int i = 0; i<dataPengiriman[2].length;i++){
                                 for (int j=0; j<dataPengiriman.length; j++) {
                                     if (namaPenerima.equalsIgnoreCase(dataPengiriman[2][i])){
-                                    System.out.println("Nama Pengirim: " + dataPengiriman[b][i]);
-                                    System.out.println("No Hp Pengirim: " + dataPengiriman[b+1][i]);
-                                    System.out.println("Nama Penerima: " + dataPengiriman[b+2][i]);
-                                    System.out.println("No Hp Penerima: " + dataPengiriman[b+3][i]);
-                                    System.out.println("Alamat Penerima: " + dataPengiriman[b+4][i]);
-                                    System.out.println("No Resi: " + dataPengiriman[b+5][i]);
-                                    System.out.println("Biaya Pengiriman: " + dataPaket[b][i]);
-                                    System.out.println("Berat Paket: " + dataPaket[b+1][i]);
-                                    System.out.println("Jarak Pengiriman: " + dataPaket[b+2][i]);
+                                    System.out.println("Nama Pengirim    : " + dataPengiriman[b][i]);
+                                    System.out.println("No Hp Pengirim   : " + dataPengiriman[b+1][i]);
+                                    System.out.println("Nama Penerima    : " + dataPengiriman[b+2][i]);
+                                    System.out.println("No Hp Penerima   : " + dataPengiriman[b+3][i]);
+                                    System.out.println("Alamat Penerima  : " + dataPengiriman[b+4][i]);
+                                    System.out.println("No Resi          : " + dataPengiriman[b+5][i]);
+                                    System.out.println("Biaya Pengiriman : " + dataPaket[b][i]);
+                                    System.out.println("Berat Paket      : " + dataPaket[b+1][i]);
+                                    System.out.println("Jarak Pengiriman : " + dataPaket[b+2][i]);
                                     riwayatDitemukan = true;
                                     break; 
                                 }                         
@@ -304,20 +315,20 @@ public class pengiriman {
                         } else if (pil == 4) {
                             System.out.print("Masukan no hp penerima : ");
                             String nomorPenerima = scanner.next();
-                            System.out.println("===================================");
+                            System.out.println("======================================");
                             boolean riwayatDitemukan = false;
                             for(int i = 0; i<dataPengiriman[3].length; i++){
                                 for (int j=0; j<dataPengiriman.length; j++) {
                                     if (nomorPenerima.equalsIgnoreCase(dataPengiriman[3][i])){
-                                    System.out.println("Nama Pengirim: " + dataPengiriman[b][i]);
-                                    System.out.println("No Hp Pengirim: " + dataPengiriman[b+1][i]);
-                                    System.out.println("Nama Penerima: " + dataPengiriman[b+2][i]);
-                                    System.out.println("No Hp Penerima: " + dataPengiriman[b+3][i]);
-                                    System.out.println("Alamat Penerima: " + dataPengiriman[b+4][i]);
-                                    System.out.println("No Resi: " + dataPengiriman[b+5][i]);                                
-                                    System.out.println("Biaya Pengiriman: " + dataPaket[b][i]);
-                                    System.out.println("Berat Paket: " + dataPaket[b+1][i]);
-                                    System.out.println("Jarak Pengiriman: " + dataPaket[b+2][i]);
+                                    System.out.println("Nama Pengirim    : " + dataPengiriman[b][i]);
+                                    System.out.println("No Hp Pengirim   : " + dataPengiriman[b+1][i]);
+                                    System.out.println("Nama Penerima    : " + dataPengiriman[b+2][i]);
+                                    System.out.println("No Hp Penerima   : " + dataPengiriman[b+3][i]);
+                                    System.out.println("Alamat Penerima  : " + dataPengiriman[b+4][i]);
+                                    System.out.println("No Resi          : " + dataPengiriman[b+5][i]);                                
+                                    System.out.println("Biaya Pengiriman : " + dataPaket[b][i]);
+                                    System.out.println("Berat Paket      : " + dataPaket[b+1][i]);
+                                    System.out.println("Jarak Pengiriman : " + dataPaket[b+2][i]);
                                     riwayatDitemukan = true;
                                     break;
                                 }
@@ -333,20 +344,20 @@ public class pengiriman {
                         } else if (pil == 5) {
                             System.out.print("Masukan alamat penerima : ");
                             String alamatPenerima = scanner.next();
-                            System.out.println("===================================");
+                            System.out.println("======================================");
                             boolean riwayatDitemukan = false;
                             for(int i = 0; i<dataPengiriman[4].length; i++){
                                 for(int j=0; j<dataPengiriman.length; j++){
                                     if (alamatPenerima.equalsIgnoreCase(dataPengiriman[4][i])){
-                                    System.out.println("Nama Pengirim: " + dataPengiriman[b][i]);
-                                    System.out.println("No Hp Pengirim: " + dataPengiriman[b+1][i]);
-                                    System.out.println("Nama Penerima: " + dataPengiriman[b+2][i]);
-                                    System.out.println("No Hp Penerima: " + dataPengiriman[b+3][i]);
-                                    System.out.println("Alamat Penerima: " + dataPengiriman[b+4][i]);
-                                    System.out.println("No Resi: " + dataPengiriman[b+5][i]);
-                                    System.out.println("Biaya Pengiriman: " + dataPaket[b][i]);
-                                    System.out.println("Berat Paket: " + dataPaket[b+1][i]);
-                                    System.out.println("Jarak Pengiriman: " + dataPaket[b+2][i]);
+                                    System.out.println("Nama Pengirim    : " + dataPengiriman[b][i]);
+                                    System.out.println("No Hp Pengirim   : " + dataPengiriman[b+1][i]);
+                                    System.out.println("Nama Penerima    : " + dataPengiriman[b+2][i]);
+                                    System.out.println("No Hp Penerima   : " + dataPengiriman[b+3][i]);
+                                    System.out.println("Alamat Penerima  : " + dataPengiriman[b+4][i]);
+                                    System.out.println("No Resi          : " + dataPengiriman[b+5][i]);
+                                    System.out.println("Biaya Pengiriman : " + dataPaket[b][i]);
+                                    System.out.println("Berat Paket      : " + dataPaket[b+1][i]);
+                                    System.out.println("Jarak Pengiriman : " + dataPaket[b+2][i]);
                                     riwayatDitemukan = true;
                                     break;
                                 }
@@ -362,20 +373,20 @@ public class pengiriman {
                         } else if (pil == 6) {
                             System.out.print("Masukan no resi : ");
                             String resi = scanner.next();
-                            System.out.println("====================================");
+                            System.out.println("======================================");
                             boolean riwayatDitemukan = false;
                             for(int i = 0; i<dataPengiriman[5].length; i++){
                                 for(int j=0; j<dataPengiriman.length; j++) {
                                     if (resi.equalsIgnoreCase(dataPengiriman[5][i])){
-                                    System.out.println("Nama Pengirim: " + dataPengiriman[b][i]);
-                                    System.out.println("No Hp Pengirim: " + dataPengiriman[b+1][i]);
-                                    System.out.println("Nama Penerima: " + dataPengiriman[b+2][i]);
-                                    System.out.println("No Hp Penerima: " + dataPengiriman[b+3][i]);
-                                    System.out.println("Alamat Penerima: " + dataPengiriman[b+4][i]);
-                                    System.out.println("No Resi: " + dataPengiriman[b+5][i]);                              
-                                    System.out.println("Biaya Pengiriman: " + dataPaket[b][i]);
-                                    System.out.println("Berat Paket: " + dataPaket[b+1][i]);
-                                    System.out.println("Jarak Pengiriman: " + dataPaket[b+2][i]);
+                                    System.out.println("Nama Pengirim    : " + dataPengiriman[b][i]);
+                                    System.out.println("No Hp Pengirim   : " + dataPengiriman[b+1][i]);
+                                    System.out.println("Nama Penerima    : " + dataPengiriman[b+2][i]);
+                                    System.out.println("No Hp Penerima   : " + dataPengiriman[b+3][i]);
+                                    System.out.println("Alamat Penerima  : " + dataPengiriman[b+4][i]);
+                                    System.out.println("No Resi          : " + dataPengiriman[b+5][i]);                              
+                                    System.out.println("Biaya Pengiriman : " + dataPaket[b][i]);
+                                    System.out.println("Berat Paket      : " + dataPaket[b+1][i]);
+                                    System.out.println("Jarak Pengiriman : " + dataPaket[b+2][i]);
                                     riwayatDitemukan = true;
                                     break;
                                     }
@@ -390,22 +401,25 @@ public class pengiriman {
                             
 
                         }else if (pil==7){
-                            System.err.println("Jumlah Transaksi : " + k);
                             System.out.println("======================================");
+                            System.err.println("Jumlah Transaksi : " + k);
 
                         }else if (pil==8){
-                            System.out.println("Menampilkan semua riwayat:");
                             System.out.println("======================================");
-                            for (int i = 0; i < dataPengiriman.length; i++) {
-                                for (int j = 0; j < dataPengiriman[i].length; j++) {
-                                    for (int l = 0; l < template.length; l++) {
-                                        System.out.println(template[l]+dataPengiriman[i+l][l]);
+                            System.out.println("Menampilkan semua riwayat:");
+                            for (int i = 0; i < k; i++) {
+                                System.out.println("======================================");
+                                System.out.println("Data pengiriman ke-" + (i+ 1) );
+                                for (int j = 0; j < dataPengiriman.length; j++) {
+                                        System.out.println(tempRiwayat[j] + dataPengiriman[j][i]);
                                     }
-                                }
+                                    System.out.println("Biaya Pengiriman    : " + dataPaket[b][i]);
+                                    System.out.println("Berat Paket         : " + dataPaket[b+1][i]);
+                                    System.out.println("Jarak Pengiriman    : " + dataPaket[b+2][i]);
                             }
 
                             }else if (pil==9){
-                                System.out.println("====================================");
+                                System.out.println("======================================");
                                 break;
                             }
                         }
@@ -422,7 +436,7 @@ public class pengiriman {
             
                 
             } else {
-                System.out.println("Login gagal. Nama pengguna atau kata sandi salah.");
+                System.out.println("Login anda gagal, Nama pengguna atau kata sandi salah!");
             }
         } while (true);
     }

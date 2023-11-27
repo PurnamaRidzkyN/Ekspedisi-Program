@@ -27,6 +27,31 @@ public class pengiriman {
         }
         System.out.println();
     }
+    //fungsi biaya pengiriman
+    static double biayaPengiriman (double berat, double jarak, double panjang, double lebar, double tinggi, double layanan) {
+        double dimensi, biayaPengiriman, diskon, total;
+        biayaPengiriman = berat * 10 + jarak * 5 + panjang * 5 + lebar * 5 + tinggi * 5;
+        dimensi = panjang *tinggi*lebar;
+        diskon = 0;
+        if (layanan == 1) {
+            if (jarak > 1000) {
+                if (berat < 2000) {
+                    if (dimensi < 600) {
+                        diskon = 3*0.05;
+                    } else {
+                        diskon = 2*0.05;
+                    }
+                } else {
+                    diskon = 0.05;
+                }
+            }
+            total = biayaPengiriman - (biayaPengiriman * diskon);
+
+        } else {
+            total = biayaPengiriman + (biayaPengiriman * (50/100));
+        }
+    return total;
+    }
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -118,8 +143,7 @@ public class pengiriman {
                     lebar = sc.nextDouble();
                     System.out.print("Tinggi (cm)               : ");
                     tinggi = sc.nextDouble();
-                    double biayaPengiriman = beratPaket * 10 + jarakPengiriman * 5 + panjang * 5 + lebar * 5 + tinggi * 5;
-
+                    
                     //Layanan Pengiriman
                     System.out.println("======================================");
                     System.out.println("Pilih layanan pengiriman yang digunakan");
@@ -127,32 +151,15 @@ public class pengiriman {
                     System.out.println("2. Express");
                     System.out.print("Pilihan Anda : ");
                     int layanan = scanner.nextInt();
-                    double dimensi = panjang * lebar * tinggi;
-                    double diskon = 0;
-
-                        if (layanan==1){
-                        if (jarakPengiriman > 1000) {
-                        if (beratPaket < 2000) {
-                            if (dimensi < 600) {
-                                diskon = 3*0.05;
-                            } else {
-                                diskon = 2*0.05;
-                            }
-                        } else {
-                            diskon = 0.05;
-                        }
-                    } 
-                    } else {
-                        biayaPengiriman = biayaPengiriman + biayaPengiriman * 50/100;
-                    } 
-                    double biayaPengiriman1 = biayaPengiriman - (biayaPengiriman * diskon);
+                    double layananDouble = (double) layanan;
+                    double total = biayaPengiriman(beratPaket,jarakPengiriman, panjang, lebar, tinggi, layananDouble);
                     System.out.println("======================================");
                     System.out.println("Nama pengirim           : " + namaPengirim);
                     System.out.println("Nama penerima           : " + namaPenerima);
                     System.out.println("Alamat pengirim         : " + alamatPengirim);
                     System.out.println("Alamat penerima         : " + alamatPenerima);
-                    System.out.println("Biaya pengiriman        : " + biayaPengiriman1);
-                    System.out.println("Diskon yang di dapat    : " + diskon);
+                    System.out.println("Biaya pengiriman        : " + total );
+                    //System.out.println("Diskon yang di dapat    : " + diskon);
 
                     System.out.println("======================================");
                     System.out.println("Apakah anda ingin melanjutkan pengiriman? \n 1. Iya \n 2. Tidak");
@@ -174,7 +181,7 @@ public class pengiriman {
                             System.out.println("No Hp Penerima  : " + noHpPenerima);
                             System.out.println("Tujuan          : " + alamatPenerima);
                             System.out.println("Keterangan      : " + beratPaket+" gram "+jarakPengiriman+" km");
-                            System.out.println("Biaya           : " + biayaPengiriman);
+                            System.out.println("Biaya           : " + total);
 
                             //format resi reguler
                             String rgl = "RGL01";
@@ -184,7 +191,6 @@ public class pengiriman {
                             System.out.println("No Resi        : " +resi);
                             
                         } else {
-                            double biayaPengiriman2 = biayaPengiriman + biayaPengiriman * 50/100;
                             System.out.println("======================================");
                             System.out.println("Pengirim        : " + namaPengirim);
                             System.out.println("No Hp Pengirim  : " + noHpPengirim);
@@ -192,7 +198,7 @@ public class pengiriman {
                             System.out.println("No Hp Penerima  : " + noHpPenerima);
                             System.out.println("Tujuan          : " + alamatPenerima);
                             System.out.println("Keterangan      : " + beratPaket+" gram "+ jarakPengiriman+" km");
-                            System.out.println("Biaya           : " + biayaPengiriman2);
+                            System.out.println("Biaya           : " + total);
                             //format resi express
                             String exr = "EXR02";
                             int isiResi11 = (int) jarakPengiriman;
@@ -200,10 +206,6 @@ public class pengiriman {
                             resi = exr+isiResi11*isiResi22;
                             System.out.println("No Resi         : "+resi);
                             
-                        }
-
-                        if ( biayaPengiriman1 != 0){
-                            biayaPengiriman= biayaPengiriman1;
                         }
 
                     // memasukkan array 2 dimensi resi
@@ -214,7 +216,7 @@ public class pengiriman {
                     dataPengiriman[b+4][k] = alamatPenerima;
                     dataPengiriman[b+5][k] = resi;
                     
-                    dataPaket[b][k] = biayaPengiriman;
+                    dataPaket[b][k] = total;
                     dataPaket[b+1][k] = beratPaket;
                     dataPaket[b+2][k] = jarakPengiriman;
                     k++;

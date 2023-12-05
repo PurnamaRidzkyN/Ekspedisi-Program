@@ -1,4 +1,6 @@
 import java.util.Scanner;
+import java.util.Calendar;
+import java.util.Date;
 
 public class pengiriman {
     public static void main(String[] args) {
@@ -138,12 +140,17 @@ public class pengiriman {
                                         double layananDouble = (double) layanan;
                                         double total = biayaPengiriman(beratPaket, jarakPengiriman, panjang, lebar,
                                                 tinggi, layananDouble);
+                                        Date currentDate = new Date();
+                                        Calendar calender = Calendar.getInstance();
+                                        calender.setTime(currentDate);
+                                        Date tanggal = calender.getTime();
                                         System.out.println("======================================");
                                         System.out.println("Nama pengirim           : " + namaPengirim);
                                         System.out.println("Nama penerima           : " + namaPenerima);
                                         System.out.println("Alamat pengirim         : " + alamatPengirim);
                                         System.out.println("Alamat penerima         : " + alamatPenerima);
                                         System.out.println("Biaya pengiriman        : " + total);
+                                        System.out.println("Waktu                   : " + tanggal);
                                         // System.out.println("Diskon yang di dapat : " + diskon);
 
                                         System.out.println("======================================");
@@ -160,49 +167,51 @@ public class pengiriman {
                                             // Menampilkan Resi
                                             if (layanan == 1) {
                                                 System.out.println("======================================");
-                                                System.out.println(" _______________________________________");
-                                                System.out.println("|                              |        |");
-                                                System.out.println("|       EKSPEDISI DINPUR       |   RGL  |");
-                                                System.out.println("|______________________________|________|");
-                                                System.out.printf("|Pengirim        : %-21s|\n", namaPengirim);
-                                                System.out.printf("|No Hp pengirim  : %-21s|\n", noHpPengirim);
-                                                System.out.printf("|Penerima        : %-21s|\n", namaPenerima);
-                                                System.out.printf("|No Hp Penerima  : %-21s|\n", noHpPenerima);
-                                                System.out.printf("|Tujuan          : %-21s|\n", alamatPenerima);
-                                                System.out.printf("|Keterangan      : %-16sgram |\n", beratPaket);
-                                                System.out.printf("|                  %-18skm |\n", jarakPengiriman);
-                                                System.out.printf("|Biaya           : %-21s|\n", total);
+                                                System.out.println(" ______________________________________________");
+                                                System.out.println("|                                     |        |");
+                                                System.out.println("|       EKSPEDISI DINPUR              |   RGL  |");
+                                                System.out.println("|_____________________________________|________|");
+                                                System.out.printf("|Pengirim        : %-28s|\n", namaPengirim);
+                                                System.out.printf("|No Hp pengirim  : %-28s|\n", noHpPengirim);
+                                                System.out.printf("|Penerima        : %-28s|\n", namaPenerima);
+                                                System.out.printf("|No Hp Penerima  : %-28s|\n", noHpPenerima);
+                                                System.out.printf("|Tujuan          : %-28s|\n", alamatPenerima);
+                                                System.out.printf("|Keterangan      : %-23sgram |\n", beratPaket);
+                                                System.out.printf("|                  %-25skm |\n", jarakPengiriman);
+                                                System.out.printf("|Waktu           : %-28s|\n", tanggal);
+                                                System.out.printf("|Biaya           : %-28s|\n", total);
 
                                                 // format resi reguler
                                                 String rgl = "RGL01";
                                                 int isiResi1 = (int) jarakPengiriman;
                                                 int isiResi2 = (int) beratPaket;
                                                 resi = rgl + isiResi1 * isiResi2;
-                                                System.out.printf("|No Resi         : %-21s|\n", resi);
-                                                System.out.println("|_______________________________________|");
+                                                System.out.printf("|No Resi         : %-28s|\n", resi);
+                                                System.out.println("|______________________________________________|");
                                                 System.out.println("Cetak Resi dan tempel pada paket !");
 
                                             } else {
                                                 System.out.println("======================================");
-                                                System.out.println(" _______________________________________");
-                                                System.out.println("|                              |        |");
-                                                System.out.println("|       EKSPEDISI DINPUR       |   EXR  |");
-                                                System.out.println("|______________________________|________|");
-                                                System.out.printf("|Pengirim        : %-21s|\n", namaPengirim);
-                                                System.out.printf("|No Hp pengirim  : %-21s|\n", noHpPengirim);
-                                                System.out.printf("|Penerima        : %-21s|\n", namaPenerima);
-                                                System.out.printf("|No Hp Penerima  : %-21s|\n", noHpPenerima);
-                                                System.out.printf("|Tujuan          : %-21s|\n", alamatPenerima);
-                                                System.out.printf("|Keterangan      : %-16sgram |\n", beratPaket);
-                                                System.out.printf("|                  %-18skm |\n", jarakPengiriman);
-                                                System.out.printf("|Biaya           : %-21s|\n", total);
+                                                System.out.println(" ______________________________________________");
+                                                System.out.println("|                                     |        |");
+                                                System.out.println("|       EKSPEDISI DINPUR              |   EXR  |");
+                                                System.out.println("|_____________________________________|________|");
+                                                System.out.printf("|Pengirim        : %-28s|\n", namaPengirim);
+                                                System.out.printf("|No Hp pengirim  : %-28s|\n", noHpPengirim);
+                                                System.out.printf("|Penerima        : %-28s|\n", namaPenerima);
+                                                System.out.printf("|No Hp Penerima  : %-28s|\n", noHpPenerima);
+                                                System.out.printf("|Tujuan          : %-28s|\n", alamatPenerima);
+                                                System.out.printf("|Keterangan      : %-23sgram |\n", beratPaket);
+                                                System.out.printf("|                  %-25skm |\n", jarakPengiriman);
+                                                System.out.printf("|Waktu           : %-28s|\n", tanggal);
+                                                System.out.printf("|Biaya           : %-28s|\n", total);
                                                 // format resi express
                                                 String exr = "EXR02";
                                                 int isiResi11 = (int) jarakPengiriman;
                                                 int isiResi22 = (int) beratPaket;
                                                 resi = exr + isiResi11 * isiResi22;
-                                                System.out.printf("|No Resi         : %-21s|\n", resi);
-                                                System.out.println("|_______________________________________|");
+                                                System.out.printf("|No Resi         : %-28s|\n", resi);
+                                                System.out.println("|______________________________________________|");
                                                 System.out.println("Cetak Resi dan tempel pada paket !");
 
                                             }

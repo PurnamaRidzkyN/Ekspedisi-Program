@@ -321,7 +321,7 @@ public class pengiriman {
         }
     }
 
-    public static void manajer(double[][] dataPaket1, String[][] dataPengiriman1, int k1,int b, boolean loginBerhasil,double[][] dataPaket2, String[][] dataPengiriman2, int k2) {
+    public static void manajer(double[][] dataPaket1, String[][] dataPengiriman1, int k1 ,int b, boolean loginBerhasil,double[][] dataPaket2, String[][] dataPengiriman2, int k2) {
         Scanner scanner = new Scanner(System.in);
         while (true) {
             if (loginBerhasil) {
@@ -337,7 +337,7 @@ public class pengiriman {
                     if (choice == 1) {
                         pencarianRiwayat(scanner, dataPengiriman1, dataPaket1, k1);
                         break;
-                    }else if(choice ==2 ){
+                    } else if(choice ==2 ){
                         pencarianRiwayat(scanner, dataPengiriman2, dataPaket2, k2);
                     }
                 }
@@ -347,37 +347,60 @@ public class pengiriman {
 
     }
 
-static void pelanggan(int maxData, double[][] dataPaket, String[][] dataPengiriman, int k) {
-    Scanner scanner = new Scanner(System.in);
-    while (true) {
-        System.out.println(" ======================================");
-        System.out.println("|1.Lewat nama pengirim                 |");
-        System.out.println("|2.Lewat no resi                       |");
-        System.out.println("|3.Kembali                             |");
-        System.out.println(" ======================================");
-        System.out.print("Pilihan Anda : ");
-        int pil = scanner.nextInt();
+    static void pelanggan(int maxData, double[][] dataPaket, String[][] dataPengiriman, int k) {
+        Scanner scanner = new Scanner(System.in);
+        while (true) {
+            System.out.println(" _________________________");
+            System.out.println("|                         |");
+            System.out.println("|Pilih tindakan:          |");
+            System.out.println("|1. Mengirim paket        |");
+            System.out.println("|2. Riwayat pembelian     |");
+            System.out.println("|3. Melacak paket         |");
+            System.out.println("|4. Keluar                |");
+            System.out.println("|_________________________|");
+            System.out.print("Pilihan Anda : ");
+            int choice = scanner.nextInt();
+            scanner.nextLine();
+            
+            if (choice == 1) {
 
-        if (pil == 1) {
-            System.out.print("Masukan nama pengirim : ");
-            String namaPengirim = scanner.next();
-            System.out.println("======================================");
-            tampilRiwayat(pil, namaPengirim, dataPengiriman, dataPaket, k);
+            }
+            else if (choice == 2 ) {
+                boolean button = true;
+                while (button) {
+                    System.out.println(" ======================================");
+                    System.out.println("|Pilih tindakan:                       |");
+                    System.out.println("|1.Lewat nama pengirim                 |");
+                    System.out.println("|2.Lewat no resi                       |");
+                    System.out.println("|3.Kembali                             |");
+                    System.out.println(" ======================================");
+                    System.out.print("Pilihan Anda : ");
+                    int pil = scanner.nextInt();
+                    if (pil == 1) {
+                        System.out.print("Masukan nama pengirim : ");
+                        String namaPengirim = scanner.next();
+                        System.out.println("======================================");
+                        tampilRiwayat(pil, namaPengirim, dataPengiriman, dataPaket, k);
+    
+                    } else if (pil == 2) {
+                        System.out.print("Masukan no resi : ");
+                        String noResi = scanner.next();
+                        System.out.println("======================================");
+                        tampilRiwayat(pil, noResi, dataPengiriman, dataPaket, k);
+    
+                    } else if (pil == 3) {
+                        System.out.println("======================================");
+                        break;
+                    }
+                }
+            } else if (choice == 3) {
 
-        } else if (pil == 2) {
-            System.out.print("Masukan no resi : ");
-            String noResi = scanner.next();
-            System.out.println("======================================");
-            tampilRiwayat(pil, noResi, dataPengiriman, dataPaket, k);
-
-        } else if (pil == 3) {
-            System.out.println("======================================");
-            break;
+            } else if (choice == 4) {
+                // Implementasi pilihan keluar
+            }
         }
     }
-}
-
-
+    
     static void admin(double[][] dataPaket, String[][] dataPengiriman, int k, int b, boolean loginBerhasil) {
 
     }

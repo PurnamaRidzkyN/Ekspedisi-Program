@@ -36,7 +36,7 @@ public class pengiriman {
             System.out.println("1.Manajer");
             System.out.println("2.Admin");
             System.out.println("3.Kurir");
-            System.out.println("4.User");
+            System.out.println("4.Pelanggan");
             System.out.println("5.Ubah bahasa");
             System.out.println("============================================");
             System.out.print("Masukan pilihan anda: ");
@@ -324,7 +324,7 @@ public class pengiriman {
 
     }
 
-    static void user(int maxData, double[][] dataPaket, String[][] dataPengiriman) {
+    static void pelanggan(int maxData, double[][] dataPaket, String[][] dataPengiriman) {
 
     }
 
@@ -496,7 +496,17 @@ public class pengiriman {
     }
 
     static void melacakPaket(String data, String[][] dataPaket, int b, int k) {
-
+        Scanner sc = new Scanner(System.in);
+        Date currenDate = new Date();
+        Calendar calender = Calendar.getInstance();
+        calender.setTime(currenDate);
+        calender.add(Calendar.DAY_OF_YEAR,2);
+        while (true) {
+            System.out.print("Masukkan No Resi : ");
+            String resi = sc.nextLine();
+            System.out.println("Lokasi Paket");
+            System.out.println(calender);
+        }
     }
 
 }

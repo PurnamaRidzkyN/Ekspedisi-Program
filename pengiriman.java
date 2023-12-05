@@ -17,6 +17,12 @@ public class pengiriman {
                 { "Kurir1", "kr1" },
                 { "Kurir2", "kr1" }
         };
+        String[][] loginPelanggan = {
+                { "Pelanggan1", "plg1" },
+                { "Pelanggan2", "plg2" }
+        };
+
+        
 
         // kumpulan array
         int k1 = 0;
@@ -293,7 +299,24 @@ public class pengiriman {
                 case 3:
                     break;
                 case 4:
+                    while (true) {
+                        int login = login(loginPelanggan);
+                        if (login == 1) {
+                            boolean islogin = true;
+                            pelanggan(maxData, dataPaket1, dataPengiriman1, k1);
+                            break;
+                        } else {
+                            System.out.print("Masukan ulang (y/n): ");
+                            String pil = input.next();
+                            if (pil.equalsIgnoreCase("y")) {
+                
+                            } else {
+                                break;
+                            }
+                        }
+                    }
                     break;
+                
             }
         }
     }
@@ -324,9 +347,36 @@ public class pengiriman {
 
     }
 
-    static void pelanggan(int maxData, double[][] dataPaket, String[][] dataPengiriman) {
+static void pelanggan(int maxData, double[][] dataPaket, String[][] dataPengiriman, int k) {
+    Scanner scanner = new Scanner(System.in);
+    while (true) {
+        System.out.println(" ======================================");
+        System.out.println("|1.Lewat nama pengirim                 |");
+        System.out.println("|2.Lewat no resi                       |");
+        System.out.println("|3.Kembali                             |");
+        System.out.println(" ======================================");
+        System.out.print("Pilihan Anda : ");
+        int pil = scanner.nextInt();
 
+        if (pil == 1) {
+            System.out.print("Masukan nama pengirim : ");
+            String namaPengirim = scanner.next();
+            System.out.println("======================================");
+            tampilRiwayat(pil, namaPengirim, dataPengiriman, dataPaket, k);
+
+        } else if (pil == 2) {
+            System.out.print("Masukan no resi : ");
+            String noResi = scanner.next();
+            System.out.println("======================================");
+            tampilRiwayat(pil, noResi, dataPengiriman, dataPaket, k);
+
+        } else if (pil == 3) {
+            System.out.println("======================================");
+            break;
+        }
     }
+}
+
 
     static void admin(double[][] dataPaket, String[][] dataPengiriman, int k, int b, boolean loginBerhasil) {
 

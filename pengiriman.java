@@ -1,10 +1,12 @@
 import java.util.Scanner;
-import java.util.Calendar;
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 public class pengiriman {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
+        LocalDate today = LocalDate.now();
+        LocalTime time = LocalTime.now();
         // Login
         String[][] loginManajer = {
                 { "Manajer", "manage" }
@@ -146,17 +148,14 @@ public class pengiriman {
                                         double layananDouble = (double) layanan;
                                         double total = biayaPengiriman(beratPaket, jarakPengiriman, panjang, lebar,
                                                 tinggi, layananDouble);
-                                        Date currentDate = new Date();
-                                        Calendar calender = Calendar.getInstance();
-                                        calender.setTime(currentDate);
-                                        Date tanggal = calender.getTime();
                                         System.out.println("======================================");
                                         System.out.println("Nama pengirim           : " + namaPengirim);
                                         System.out.println("Nama penerima           : " + namaPenerima);
                                         System.out.println("Alamat pengirim         : " + alamatPengirim);
                                         System.out.println("Alamat penerima         : " + alamatPenerima);
                                         System.out.println("Biaya pengiriman        : " + total);
-                                        System.out.println("Waktu                   : " + tanggal);
+                                        System.out.println("Waktu                   : " + today);
+                                        System.out.println("                          " + time);
                                         // System.out.println("Diskon yang di dapat : " + diskon);
 
                                         System.out.println("======================================");
@@ -184,7 +183,8 @@ public class pengiriman {
                                                 System.out.printf("|Tujuan          : %-28s|\n", alamatPenerima);
                                                 System.out.printf("|Keterangan      : %-23sgram |\n", beratPaket);
                                                 System.out.printf("|                  %-25skm |\n", jarakPengiriman);
-                                                System.out.printf("|Waktu           : %-28s|\n", tanggal);
+                                                System.out.printf("|Waktu           : %-28s|\n", today);
+                                                System.out.printf("|                  %-28s|\n", time);
                                                 System.out.printf("|Biaya           : %-28s|\n", total);
 
                                                 // format resi reguler
@@ -209,7 +209,8 @@ public class pengiriman {
                                                 System.out.printf("|Tujuan          : %-28s|\n", alamatPenerima);
                                                 System.out.printf("|Keterangan      : %-23sgram |\n", beratPaket);
                                                 System.out.printf("|                  %-25skm |\n", jarakPengiriman);
-                                                System.out.printf("|Waktu           : %-28s|\n", tanggal);
+                                                System.out.printf("|Waktu           : %-28s|\n", today);
+                                                System.out.printf("|                  %-28s|\n", time);
                                                 System.out.printf("|Biaya           : %-28s|\n", total);
                                                 // format resi express
                                                 String exr = "EXR02";
@@ -265,17 +266,11 @@ public class pengiriman {
 
                                 } else if (choice == 2) {
                                     // Melacak Paket
-                                    System.out.println(" ======================================");
-                                    System.out.println("|1.Lewat nama pengirim                 |");
-                                    System.out.println("|2.Lewat no Hp pengirim                |");
-                                    System.out.println("|3.Lewat nama penerima                 |");
-                                    System.out.println("|4.Lewat no Hp penerima                |");
-                                    System.out.println("|5.Lewat alamat penerima               |");
-                                    System.out.println("|6.Lewat no resi                       |");
-                                    System.out.println("|7.Kembali                             |");
-                                    System.out.println(" ======================================");
-                                    System.out.print("Pilihan Anda : ");
-                                    int pill = scanner.nextInt();
+                                    if (login == 1) {
+                                        melacakPaket(dataPengiriman1, k1);
+                                    } else if (login == 2) {
+                                        melacakPaket(dataPengiriman2, k2);
+                                    }
 
                                 } else if (choice == 3) {
                                     if (login == 1) {
@@ -394,7 +389,7 @@ public class pengiriman {
                     }
                 }
             } else if (choice == 3) {
-
+                
             } else if (choice == 4) {
                 // Implementasi pilihan keluar
             }
@@ -568,18 +563,52 @@ public class pengiriman {
         return total;
     }
 
-    static void melacakPaket(String data, String[][] dataPaket, int b, int k) {
-        Scanner sc = new Scanner(System.in);
-        Date currenDate = new Date();
-        Calendar calender = Calendar.getInstance();
-        calender.setTime(currenDate);
-        calender.add(Calendar.DAY_OF_YEAR,2);
+    static void melacakPaket(String[][] dataPengiriman, int k) {
         while (true) {
+            Scanner input = new Scanner(System.in);
+            LocalDate date = LocalDate.now();
+            LocalTime time = LocalTime.now(); 
             System.out.print("Masukkan No Resi : ");
-            String resi = sc.nextLine();
-            System.out.println("Lokasi Paket");
-            System.out.println(calender);
+            String resi = input.nextLine();
+            boolean riwayatDitemukan = false;
+            for (int i = 0; i < dataPengiriman[5].length; i++) {
+                for (int j = 0; j<dataPengiriman.length; j++) {
+                    if (resi.equalsIgnoreCase(dataPengiriman[5][i])) {
+                        System.out.println(" ");
+                        System.out.println("No. Resi                   "+ dataPengiriman[j + 5][i]);
+                        System.out.println("- "+date+" "+time+" Pesanan Dibuat");
+                        System.out.println("|");
+                        LocalTime time2 = time.plusHours(2);
+                        System.out.println("- "+date+" "+time2+" Pesanan telah dibawa oleh kurir menuju "+ dataPengiriman[j + 4][i]);
+                        System.out.println("|");
+                        LocalDate date2 = date.plusDays(1);
+                        LocalTime time3 = time2.plusHours(3);
+                        System.out.println("- "+date2+" "+time3+" Pesanan telah berada dilokasi transit Hub terakhir "+ dataPengiriman[j + 4][i]);
+                        System.out.println("|");
+                        LocalTime time4 = time3.plusHours(5);
+                        System.out.println("- "+date2+" "+time4+" Paket telah diambil kurir daerah anda");
+                        System.out.println("|");
+                        LocalTime time5 = time4.plusHours(2);
+                        LocalDate date3 = date2.plusDays(1);
+                        System.out.println("- "+date3+" "+time5+" Paket telah diterima");
+                        System.out.println("Terima kasih telah memakai jasa Ekspedisi Dinpur!");
+                        riwayatDitemukan = true;
+                        break;
+                    }
+                    riwayatDitemukan = false;
+                    break;
+                }
+                if (riwayatDitemukan) {
+                    break;
+                }
+                if (riwayatDitemukan == false) {
+                    System.out.println("Paket tidak ada.");
+                }
+                
+            }
+            break;
         }
+    
     }
 
 }

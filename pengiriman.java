@@ -306,8 +306,54 @@ public class pengiriman {
                         }
                     }
                     break;
+
                 case 3:
+                    int masukKurir = login(loginKurir);
+                    if (masukKurir == 1) {
+                        System.out.println("Selamat datang, Kurir!");
+                        while (true) {
+                            System.out.println("Pilihan Kurir:");
+                            System.out.println("1. Lihat data paket yang akan dikirim");
+                            System.out.println("2. Lihat perjalanan paket");
+                            System.out.println("3. Keluar");
+                            System.out.print("Pilihan Anda: ");
+                            int pilihanKurir = input.nextInt();
+
+                            if (pilihanKurir == 1) {
+                                System.out.println("Data paket yang harus dikirim: ");
+                                if (k1 > 0) {
+                                    // Menampilkan data paket yang akan dikirim oleh kurir
+                                    for (int i = 0; i < k1; i++) {
+                                        System.out.println("======================================");
+                                        System.out.println("Data paket ke-" + (i + 1));
+                                        System.out.println("______________________________________________");
+                                        System.out.printf("Pengirim        : %-28s\n", dataPengiriman1[0][i]);
+                                        System.out.printf("No Hp pengirim  : %-28s\n", dataPengiriman1[1][i]);
+                                        System.out.printf("Penerima        : %-28s\n", dataPengiriman1[2][i]);
+                                        System.out.printf("No Hp Penerima  : %-28s\n", dataPengiriman1[3][i]);
+                                        System.out.printf("Tujuan          : %-28s\n", dataPengiriman1[4][i]);
+                                        System.out.printf("Keterangan      : %-23sgram \n", dataPaket1[1][i]);
+                                        System.out.printf("                  %-25skm \n", dataPaket1[2][i]);
+                                        System.out.printf("Biaya           : %-28s\n", dataPaket1[0][i]);
+                                        System.out.printf("No Resi         : %-28s\n", dataPengiriman1[5][i]);
+                                        System.out.println("______________________________________________");
+                                    }
+                                } else {
+                                    System.out.println("Tidak ada paket yang akan dikirim.");
+                                }
+                            } else if (pilihanKurir == 2) {
+                                System.out.print("Masukkan no resi untuk melihat riwayat pesanan: ");
+                                String noResi = input.next();
+                                melacakPaket(dataPengiriman1, k1);
+                            } else if (pilihanKurir == 3) {
+                                break;
+                            }
+                        }
+                    } else if (masukKurir == 0) {
+                        break;
+                    }
                     break;
+
                 case 4:
                     while (true) {
                         int login = login(loginPelanggan);

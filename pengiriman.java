@@ -34,6 +34,18 @@ public class pengiriman {
         String[][] dataPengiriman1 = new String[6][maxData];
         double[][] dataPaket2 = new double[4][maxData];
         String[][] dataPengiriman2 = new String[6][maxData];
+        String[] lokasi = {"Surabaya", "Blitar", "Kediri", "Madiun", "Malang", "Batu", "Mojokerto", "Pasuruan", "Probolinggo"};
+        int [][] jarak = {
+            {0, 162, 123, 164, 95, 104, 51, 69, 106}, //surabaya indeks 0
+            {162, 0, 40, 133, 76, 75, 101, 153, 190}, //Blitar
+            {123, 40, 0, 94, 103, 86, 80, 167, 203}, //Kediri
+            {164, 134, 94, 0, 234, 165, 121, 208, 245}, //Madiun
+            {94, 79, 103, 232, 0, 17, 92, 75, 112}, //Malang
+            {105, 74, 86, 163, 17, 0, 60, 85, 123}, //Batu
+            {59, 101, 80, 121, 121, 60, 0, 66, 132}, //Mojokerto
+            {70, 54, 167, 208, 55, 64,66, 0, 46}, //Pasuruan
+            {106, 193, 203, 244, 112, 123, 132, 46, 0} //Probolinggo indeks 8
+        };
         while (true) {
             System.out.println("============================================");
             System.out.println(" SELAMAT DATANG DI PROGRAM EKSPEDISI DINPUR");
@@ -111,10 +123,31 @@ public class pengiriman {
                                             String namaPengirim = sc.nextLine();
                                             System.out.print("Masukkan nama penerima    : ");
                                             String namaPenerima = sc.nextLine();
-                                            System.out.print("Masukkan alamat pengirim  : ");
-                                            String alamatPengirim = sc.nextLine();
-                                            System.out.print("Masukkan alamat penerima  : ");
-                                            String alamatPenerima = sc.nextLine();
+                                            System.out.println("Pilih lokasi Pengirim : ");
+                                            System.out.println("1. Surabaya");
+                                            System.out.println("2. Blitar");
+                                            System.out.println("3. Kediri");
+                                            System.out.println("4. Madiun");
+                                            System.out.println("5. Malang");
+                                            System.out.println("6. Batu");
+                                            System.out.println("7. Mojokerto");
+                                            System.out.println("8. Pasuruan");
+                                            System.out.println("9. Probolinggo");
+                                            System.out.print("Pilihan anda : ");
+                                            int pengirim = sc.nextInt();
+                                    
+                                            System.out.println("Pilih lokasi Penerima : ");
+                                            System.out.println("1. Surabaya");
+                                            System.out.println("2. Blitar");
+                                            System.out.println("3. Kediri");
+                                            System.out.println("4. Madiun");
+                                            System.out.println("5. Malang");
+                                            System.out.println("6. Batu");
+                                            System.out.println("7. Mojokerto");
+                                            System.out.println("8. Pasuruan");
+                                            System.out.println("9. Probolinggo");
+                                            System.out.print("Pilihan anda : ");
+                                            int penerima = sc.nextInt();
                                             System.out.print("Masukkan no hp pengirim   : ");
                                             String noHpPengirim = sc.nextLine();
                                             System.out.print("Masukkan no hp penerima   : ");
@@ -148,8 +181,19 @@ public class pengiriman {
                                             System.out.println("======================================");
                                             System.out.println("Nama pengirim           : " + namaPengirim);
                                             System.out.println("Nama penerima           : " + namaPenerima);
-                                            System.out.println("Alamat pengirim         : " + alamatPengirim);
-                                            System.out.println("Alamat penerima         : " + alamatPenerima);
+                                            if (pengirim >= 1 && pengirim <= 8) {
+                                                String kotaTerpilih = lokasi[pengirim -1];
+                                                System.out.println("Lokasi Pengirim         : " + kotaTerpilih);
+                                            } else {
+                                                System.out.println("Lokasi Pengirim tidak ada.");
+                                            }
+                                    
+                                            if (penerima >= 1 && penerima <= 8) {
+                                                String kotaTerpilih = lokasi[penerima - 1];
+                                                System.out.println("Lokasi Penerima         : " + kotaTerpilih);
+                                            } else {
+                                                System.out.println("Lokasi Penerima tidak ada.");
+                                            }
                                             System.out.println("Biaya pengiriman        : " + total);
                                             System.out.println("Waktu                   : " + today);
                                             System.out.println("                          " + time);

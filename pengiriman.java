@@ -23,13 +23,13 @@ public class pengiriman {
                 { "Kurir2", "kr1" }
         };
         String[][] loginPelanggan = {
-                { "Pelanggan1", "plg1" },
-                { "Pelanggan2", "plg2" }
+                { "Pelanggan", "aku" }
         };
 
         // kumpulan array
         int k1 = 0;
         int k2 = 0;
+        int k3 = 0;
         int b = 0;
         ;
         int maxData = 100;
@@ -37,6 +37,8 @@ public class pengiriman {
         String[][] dataPengiriman1 = new String[6][maxData];
         double[][] dataPaket2 = new double[4][maxData];
         String[][] dataPengiriman2 = new String[6][maxData];
+        double[][] dataPaket3 = new double[4][maxData];
+        String[][] dataPengiriman3 = new String[6][maxData];
         String[] lokasi = { "Surabaya", "Blitar", "Kediri", "Madiun", "Malang", "Batu", "Mojokerto", "Pasuruan",
                 "Probolinggo" };
         int[][] jarak = {
@@ -71,7 +73,7 @@ public class pengiriman {
                         int login = login(loginManajer);
                         if (login == 1) {
                             boolean islogin = true;
-                            manajer(dataPaket1, dataPengiriman1, k1, b, islogin, dataPaket2, dataPengiriman2, k2);
+                            manajer(dataPaket1, dataPengiriman1, k1, b, islogin, dataPaket2, dataPengiriman2, k2, dataPengiriman3, dataPaket3, k3);
                             break;
                         } else {
                             System.out.print("Masukan ulang (y/n): ");
@@ -112,7 +114,7 @@ public class pengiriman {
                                 System.out.println("|2. Melacak paket         |");
                                 System.out.println("|3. Riwayat pembelian     |");
                                 System.out.println("|4. Menampilkan Laporan   |");
-                                System.out.println("|4. Keluar                |");
+                                System.out.println("|5. Keluar                |");
                                 System.out.println("|_________________________|");
                                 System.out.print("Pilihan Anda : ");
                                 int choice = scanner.nextInt();
@@ -350,7 +352,7 @@ public class pengiriman {
                                 if (login == 1) {
                                     laporanAdmin(dataPengiriman1, dataPaket1, k1);
                                 } else if (login == 2) {
-                                    laporanAdmin2(dataPengiriman2, dataPaket2, k2);
+                                    laporanAdmin(dataPengiriman2, dataPaket2, k2);
                                 }
 
                                 } else if (choice == 5) {
@@ -629,30 +631,18 @@ public class pengiriman {
                                             }
                                             // memasukkan array 2 dimensi resi
                                             if (login == 1) {
-                                                dataPengiriman1[b][k1] = namaPengirim;
-                                                dataPengiriman1[b + 1][k1] = noHpPengirim;
-                                                dataPengiriman1[b + 2][k1] = namaPenerima;
-                                                dataPengiriman1[b + 3][k1] = noHpPenerima;
-                                                dataPengiriman1[b + 4][k1] = alamatPenerima;
-                                                dataPengiriman1[b + 5][k1] = resi;
+                                                dataPengiriman3[b][k1] = namaPengirim;
+                                                dataPengiriman3[b + 1][k1] = noHpPengirim;
+                                                dataPengiriman3[b + 2][k1] = namaPenerima;
+                                                dataPengiriman3[b + 3][k1] = noHpPenerima;
+                                                dataPengiriman3[b + 4][k1] = alamatPenerima;
+                                                dataPengiriman3[b + 5][k1] = resi;
 
-                                                dataPaket1[b][k1] = total;
-                                                dataPaket1[b + 1][k1] = beratPaket;
-                                                dataPaket1[b + 2][k1] = jarakPengiriman;
-                                                k1++;
+                                                dataPaket3[b][k1] = total;
+                                                dataPaket3[b + 1][k1] = beratPaket;
+                                                dataPaket3[b + 2][k1] = jarakPengiriman;
+                                                k3++;
 
-                                            } else if (login == 2) {
-                                                dataPengiriman2[b][k2] = namaPengirim;
-                                                dataPengiriman2[b + 1][k2] = noHpPengirim;
-                                                dataPengiriman2[b + 2][k2] = namaPenerima;
-                                                dataPengiriman2[b + 3][k2] = noHpPenerima;
-                                                dataPengiriman2[b + 4][k2] = alamatPenerima;
-                                                dataPengiriman2[b + 5][k2] = resi;
-
-                                                dataPaket2[b][k2] = total;
-                                                dataPaket2[b + 1][k2] = beratPaket;
-                                                dataPaket2[b + 2][k2] = jarakPengiriman;
-                                                k2++;
                                             }
                                         } else {
                                             System.out.println("Transaksi gagal");
@@ -718,12 +708,13 @@ public class pengiriman {
     }
 
     public static void manajer(double[][] dataPaket1, String[][] dataPengiriman1, int k1, int b, boolean loginBerhasil,
-            double[][] dataPaket2, String[][] dataPengiriman2, int k2) {
+            double[][] dataPaket2, String[][] dataPengiriman2, int k2, String[][] dataPengiriman3, double[][] dataPaket3, int k3) {
         Scanner scanner = new Scanner(System.in);
         while (true) {
             if (loginBerhasil) {
                 System.out.println("1. Menampilkan semua riwayat");
-                System.out.println("2. Menampilkan laporan Admin");
+                System.out.println("2. Menampilkan laporan Bulanan");
+                System.out.println("3. Keluar");
 
                 System.out.print("Masukan pilihan: ");
                 int choice = scanner.nextInt();
@@ -740,18 +731,22 @@ public class pengiriman {
                         pencarianRiwayat(scanner, dataPengiriman2, dataPaket2, k2);
                     }
                 } else if (choice == 2) {
-                    System.out.println("Pilih admin");
+                    System.out.println("Pilih : ");
                     System.out.println("1.Admin 1");
                     System.out.println("2.Admin 2");
+                    System.out.println("3.Pelanggan");
+                    System.out.println("4.Keluar");
                     System.out.print("Masukan pilihan anda: ");
                     choice = scanner.nextInt();
                     if (choice == 1) {
                         laporanAdmin(dataPengiriman1, dataPaket1, k1);
-                        break;
                     } else if (choice == 2) {
-                        laporanAdmin2(dataPengiriman2, dataPaket2, k2);
-                        break;
+                        laporanAdmin(dataPengiriman2, dataPaket2, k2);
+                    } else if (choice==3){
+                        laporanPelanggan(dataPengiriman3, dataPaket3, k3);
                     }
+                } else if (choice==3){
+                    break;
                 }
             }
         }
@@ -1034,9 +1029,9 @@ public class pengiriman {
         System.out.println("==========================================================================================================");
         }
 
-    public static void laporanAdmin2(String[][] dataPengiriman, double[][] dataPaket, int k) {
-       System.out.println("==========================================================================================================");
-        System.out.println("                               LAPORAN BULANAN ADMIN EKSPEDISI DINPUR                                     ");
+        public static void laporanPelanggan(String[][] dataPengiriman, double[][] dataPaket, int k) {
+        System.out.println("==========================================================================================================");
+        System.out.println("                               LAPORAN BULANAN PELANGGAN EKSPEDISI DINPUR                                 ");
         System.out.println("==========================================================================================================");
     
         // Tanggal laporan
@@ -1069,5 +1064,5 @@ public class pengiriman {
         System.out.printf("JUMLAH PENGIRIMAN: %d\n", totalPengiriman);
         System.out.printf("TOTAL PENDAPATAN: %s\n", new DecimalFormat("#,###").format(totalBiaya));
         System.out.println("==========================================================================================================");
-    }
+        }
 }

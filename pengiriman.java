@@ -56,7 +56,7 @@ public class pengiriman {
         String[] sampai2 = new String[maxData];
         String[] sampai3 = new String[maxData];
         double jarakPengiriman;
-        boolean keluar= false;
+        boolean keluar = false;
 
         while (true) {
             System.out.println("============================================");
@@ -78,7 +78,8 @@ public class pengiriman {
                         int login = login(loginManajer);
                         if (login == 1) {
                             boolean islogin = true;
-                            manajer(dataPaket1, dataPengiriman1, k1, b, islogin, dataPaket2, dataPengiriman2, k2, dataPengiriman3, dataPaket3, k3);
+                            manajer(dataPaket1, dataPengiriman1, k1, b, islogin, dataPaket2, dataPengiriman2, k2,
+                                    dataPengiriman3, dataPaket3, k3);
                             break;
                         } else {
                             System.out.print("Masukan ulang (y/n): ");
@@ -174,7 +175,7 @@ public class pengiriman {
                                             alamatPenerima = sc.next();
                                             System.out.println("Masukan jarak : ");
                                             jarakPengiriman = sc.nextDouble();
-                                        }else{
+                                        } else {
                                             alamatPenerima = lokasi[ALpenerima - 1];
                                             jarakPengiriman = jarak[ALpengirim][ALpenerima];
                                         }
@@ -185,8 +186,7 @@ public class pengiriman {
                                         String noHpPenerima = sc.next();
 
                                         // Proses penghitungan biaya pengiriman
-                  
-                                        
+
                                         double beratPaket;
                                         System.out.print("Berat paket (gram)        : ");
                                         beratPaket = sc.nextDouble();
@@ -354,11 +354,11 @@ public class pengiriman {
                                     }
 
                                 } else if (choice == 4) {
-                                if (login == 1) {
-                                    laporanAdmin(dataPengiriman1, dataPaket1, k1);
-                                } else if (login == 2) {
-                                    laporanAdmin(dataPengiriman2, dataPaket2, k2);
-                                }
+                                    if (login == 1) {
+                                        laporanAdmin(dataPengiriman1, dataPaket1, k1);
+                                    } else if (login == 2) {
+                                        laporanAdmin(dataPengiriman2, dataPaket2, k2);
+                                    }
 
                                 } else if (choice == 5) {
                                     System.out.println("Anda telah keluar ");
@@ -429,43 +429,42 @@ public class pengiriman {
                                 System.out.println("Pilihan anda : ");
                                 int pilihan = input.nextInt();
 
-                                    if (pilihan == 1) {
-                                        System.out.println("Masukkan no resi yang ingin di konfirmasi: ");
-                                        String noResi = input.next(); 
-                                        for (int i=0; i<k1; i++) {
-                                            if(noResi.equalsIgnoreCase(dataPengiriman1[5][i])){
+                                if (pilihan == 1) {
+                                    System.out.println("Masukkan no resi yang ingin di konfirmasi: ");
+                                    String noResi = input.next();
+                                    for (int i = 0; i < k1; i++) {
+                                        if (noResi.equalsIgnoreCase(dataPengiriman1[5][i])) {
                                             sampai1[i] = dataPengiriman1[5][i];
                                             System.out.println("Paket dengan no resi ini telah sampai.");
-                                            }
-                                        }
-                                    } else if (pilihan == 2) {
-                                        System.out.println("Masukkan no resi yang ingin di konfirmasi: ");
-                                        String noResi = input.next();
-                                        for (int i=0; i<k2; i++) {
-                                            if(noResi.equalsIgnoreCase(dataPengiriman2[5][i])) {
-                                                sampai2[i] = dataPengiriman2[5][i];
-                                                System.out.println("Paket dengan no resi ini telah sampai.");
-                                            }
-                                        }
-                                    } else if (pilihan == 3) {
-                                        System.out.println("Masukkan no resi yang ingin di konfirmasi: ");
-                                        String noResi = input.next();
-                                        for (int i=0; i<k3; i++) {
-                                            if(noResi.equalsIgnoreCase(dataPengiriman3[5][i])) {
-                                                sampai3[i] = dataPengiriman3[5][i];
-                                                System.out.println("Paket dengan no resi ini telah sampai.");
-                                            }
                                         }
                                     }
-
-                                    
-                                }else {
-                                    break;
+                                } else if (pilihan == 2) {
+                                    System.out.println("Masukkan no resi yang ingin di konfirmasi: ");
+                                    String noResi = input.next();
+                                    for (int i = 0; i < k2; i++) {
+                                        if (noResi.equalsIgnoreCase(dataPengiriman2[5][i])) {
+                                            sampai2[i] = dataPengiriman2[5][i];
+                                            System.out.println("Paket dengan no resi ini telah sampai.");
+                                        }
+                                    }
+                                } else if (pilihan == 3) {
+                                    System.out.println("Masukkan no resi yang ingin di konfirmasi: ");
+                                    String noResi = input.next();
+                                    for (int i = 0; i < k3; i++) {
+                                        if (noResi.equalsIgnoreCase(dataPengiriman3[5][i])) {
+                                            sampai3[i] = dataPengiriman3[5][i];
+                                            System.out.println("Paket dengan no resi ini telah sampai.");
+                                        }
+                                    }
                                 }
-                                
+
+                            } else {
+                                break;
                             }
+
                         }
-                        break;
+                    }
+                    break;
 
                 case 4:
                     while (true) {
@@ -536,7 +535,7 @@ public class pengiriman {
                                             alamatPenerima = sc.next();
                                             System.out.println("Masukan jarak : ");
                                             jarakPengiriman = sc.nextDouble();
-                                        }else{
+                                        } else {
                                             alamatPenerima = lokasi[ALpenerima - 1];
                                             jarakPengiriman = jarak[ALpengirim][ALpenerima];
                                         }
@@ -601,25 +600,28 @@ public class pengiriman {
                                                     System.out.println("Transaksi berhasil!");
                                                     System.out.println("Kembalian :" + kembalian);
 
-                                                            // pilihan untuk pengiriman atau pick up
-                                                            System.out.println("======================================");
-                                                            System.out.println("Pilihan Pengiriman:");
-                                                            System.out.println("1. Antar ke Tempat Ekspedisi");
-                                                            System.out.println("2. Pick Up");
-                                                            System.out.print("Pilihan Anda : ");
-                                                            int cchoice = scanner.nextInt();
-                                                            scanner.nextLine();
+                                                    // pilihan untuk pengiriman atau pick up
+                                                    System.out.println("======================================");
+                                                    System.out.println("Pilihan Pengiriman:");
+                                                    System.out.println("1. Antar ke Tempat Ekspedisi");
+                                                    System.out.println("2. Pick Up");
+                                                    System.out.print("Pilihan Anda : ");
+                                                    int cchoice = scanner.nextInt();
+                                                    scanner.nextLine();
 
-                                                            if (cchoice == 1) {
-                                                                System.out.println("Paket Anda segera antar ke Ekspedisi DINPUR");
-                                                            } else if (cchoice == 2) {
-                                                                System.out.println("======================================");
-                                                                System.out.print("Masukkan alamat pengambilan paket: ");
-                                                                String alamatRumah = scanner.nextLine();
-                                                                System.out.println("\n Paket akan segera diambil di alamat Anda : " + alamatRumah);
-                                                            } else {
-                                                                System.out.println("Pilihan tidak valid");
-                                                            }
+                                                    if (cchoice == 1) {
+                                                        System.out
+                                                                .println("Paket Anda segera antar ke Ekspedisi DINPUR");
+                                                    } else if (cchoice == 2) {
+                                                        System.out.println("======================================");
+                                                        System.out.print("Masukkan alamat pengambilan paket: ");
+                                                        String alamatRumah = scanner.nextLine();
+                                                        System.out.println(
+                                                                "\n Paket akan segera diambil di alamat Anda : "
+                                                                        + alamatRumah);
+                                                    } else {
+                                                        System.out.println("Pilihan tidak valid");
+                                                    }
                                                 } else {
                                                     System.out.println("======================================");
                                                     System.out.println("Transaksi gagal! Pembayaran tidak mencukupi.");
@@ -755,20 +757,24 @@ public class pengiriman {
                     }
                     break;
                 case 5:
+
                 case 6:
-                    System.out.println("Terima kasih telah menggunak progam ekspedisi DINPUR");
-                    keluar=true;
-                    break;
-            
-                }
-            if(keluar){
+                    if (menu == 6) {
+                        System.out.println("Terima kasih telah menggunakan progam ekspedisi DINPUR");
+                        keluar = true;
+                        break;
+                    }
+
+            }
+            if (keluar) {
                 break;
             }
         }
     }
 
     public static void manajer(double[][] dataPaket1, String[][] dataPengiriman1, int k1, int b, boolean loginBerhasil,
-            double[][] dataPaket2, String[][] dataPengiriman2, int k2, String[][] dataPengiriman3, double[][] dataPaket3, int k3) {
+            double[][] dataPaket2, String[][] dataPengiriman2, int k2, String[][] dataPengiriman3,
+            double[][] dataPaket3, int k3) {
         Scanner scanner = new Scanner(System.in);
         while (true) {
             if (loginBerhasil) {
@@ -802,10 +808,10 @@ public class pengiriman {
                         laporanAdmin(dataPengiriman1, dataPaket1, k1);
                     } else if (choice == 2) {
                         laporanAdmin(dataPengiriman2, dataPaket2, k2);
-                    } else if (choice==3){
+                    } else if (choice == 3) {
                         laporanPelanggan(dataPengiriman3, dataPaket3, k3);
                     }
-                } else if (choice==3){
+                } else if (choice == 3) {
                     break;
                 }
             }
@@ -868,7 +874,7 @@ public class pengiriman {
 
             } else if (pil == 7) {
                 System.out.println("======================================");
-                System.err.println("Jumlah Transaksi : " + dataPengiriman[1].length);
+                System.err.println("Jumlah Transaksi : " + k);
 
             } else if (pil == 8) {
                 System.out.println("======================================");
@@ -974,7 +980,7 @@ public class pengiriman {
         return total;
     }
 
-    static void melacakPaket(String[][] dataPengiriman, int k, String [] sampai) {
+    static void melacakPaket(String[][] dataPengiriman, int k, String[] sampai) {
         while (true) {
             Scanner input = new Scanner(System.in);
             LocalDate date = LocalDate.now();
@@ -985,7 +991,7 @@ public class pengiriman {
             for (int i = 0; i < dataPengiriman[5].length; i++) {
                 for (int j = 0; j < dataPengiriman.length; j++) {
                     if (resi.equalsIgnoreCase(dataPengiriman[5][i])) {
-                        System.out.println( " ");
+                        System.out.println(" ");
                         System.out.println("No. Resi                   " + dataPengiriman[j + 5][i]);
                         System.out.println("- " + date + " " + time + " Pesanan Dibuat");
                         System.out.println("|");
@@ -1001,8 +1007,8 @@ public class pengiriman {
                         LocalTime time4 = time3.plusHours(5);
                         System.out.println("- " + date2 + " " + time4 + " Paket telah diambil kurir daerah anda");
                         System.out.println("|");
-                        
-                        if (sampai[i] == dataPengiriman[5][i] ) {
+
+                        if (sampai[i] == dataPengiriman[5][i]) {
                             LocalTime time5 = time4.plusHours(2);
                             LocalDate date3 = date2.plusDays(1);
                             System.out.println("- " + date3 + " " + time5 + " Paket telah diterima");
@@ -1060,76 +1066,88 @@ public class pengiriman {
     }
 
     public static void laporanAdmin(String[][] dataPengiriman, double[][] dataPaket, int k) {
-        System.out.println("==========================================================================================================");
-        System.out.println("                               LAPORAN BULANAN ADMIN EKSPEDISI DINPUR                                     ");
-        System.out.println("==========================================================================================================");
-    
+        System.out.println(
+                "==========================================================================================================");
+        System.out.println(
+                "                               LAPORAN BULANAN ADMIN EKSPEDISI DINPUR                                     ");
+        System.out.println(
+                "==========================================================================================================");
+
         // Tanggal laporan
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
         LocalDateTime now = LocalDateTime.now();
         String today = formatter.format(now);
-    
+
         // Header laporan
         System.out.printf("| %-4s | %-20s | %-20s | %-21s | %-10s | %-13s |\n",
                 "NO", "NAMA PENGIRIM", "NAMA PENERIMA", "TANGGAL PENGIRIMAN", "NO RESI", "TOTAL BIAYA");
-        System.out.println("----------------------------------------------------------------------------------------------------------");
-    
+        System.out.println(
+                "----------------------------------------------------------------------------------------------------------");
+
         // Data pengiriman
         double totalBiaya = 0;
         int totalPengiriman = 0;
-        for (int i = 0; i <= k-1; i ++) {
+        for (int i = 0; i <= k - 1; i++) {
             String namaPengirim = dataPengiriman[0][i];
             String namaPenerima = dataPengiriman[2][i];
             String tanggalPengiriman = today;
             String noResi = dataPengiriman[5][i];
             Double biaya = dataPaket[0][i];
-        
+
             totalBiaya += biaya;
             totalPengiriman++;
 
             System.out.printf("| %-4d | %-20s | %-20s | %-21s | %-10s | %-13s |\n",
-            totalPengiriman, namaPengirim, namaPenerima, tanggalPengiriman, noResi, biaya);
+                    totalPengiriman, namaPengirim, namaPenerima, tanggalPengiriman, noResi, biaya);
         }
-        System.out.println("----------------------------------------------------------------------------------------------------------");
+        System.out.println(
+                "----------------------------------------------------------------------------------------------------------");
         System.out.printf("JUMLAH PENGIRIMAN: %d\n", totalPengiriman);
         System.out.printf("TOTAL PENDAPATAN: %s\n", new DecimalFormat("#,###").format(totalBiaya));
-        System.out.println("==========================================================================================================");
-        }
+        System.out.println(
+                "==========================================================================================================");
+    }
 
-        public static void laporanPelanggan(String[][] dataPengiriman, double[][] dataPaket, int k) {
-        System.out.println("==========================================================================================================");
-        System.out.println("                               LAPORAN BULANAN PELANGGAN EKSPEDISI DINPUR                                 ");
-        System.out.println("==========================================================================================================");
-    
+    public static void laporanPelanggan(String[][] dataPengiriman, double[][] dataPaket, int k) {
+        System.out.println(
+                "==========================================================================================================");
+        System.out.println(
+                "                               LAPORAN BULANAN PELANGGAN EKSPEDISI DINPUR                                 ");
+        System.out.println(
+                "==========================================================================================================");
+
         // Tanggal laporan
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
         LocalDateTime now = LocalDateTime.now();
         String today = formatter.format(now);
-    
+
         // Header laporan
         System.out.printf("| %-4s | %-20s | %-20s | %-21s | %-10s | %-13s |\n",
                 "NO", "NAMA PENGIRIM", "NAMA PENERIMA", "TANGGAL PENGIRIMAN", "NO RESI", "TOTAL BIAYA");
-        System.out.println("----------------------------------------------------------------------------------------------------------");
-    
+        System.out.println(
+                "----------------------------------------------------------------------------------------------------------");
+
         // Data pengiriman
         double totalBiaya = 0;
         int totalPengiriman = 0;
-        for (int i = 0; i <= k-1; i ++) {
+        for (int i = 0; i <= k - 1; i++) {
             String namaPengirim = dataPengiriman[0][i];
             String namaPenerima = dataPengiriman[2][i];
             String tanggalPengiriman = today;
             String noResi = dataPengiriman[5][i];
             Double biaya = dataPaket[0][i];
-        
+
             totalBiaya += biaya;
             totalPengiriman++;
 
             System.out.printf("| %-4d | %-20s | %-20s | %-21s | %-10s | %-13s |\n",
-            totalPengiriman, namaPengirim, namaPenerima, tanggalPengiriman, noResi, biaya);
+                    totalPengiriman, namaPengirim, namaPenerima, tanggalPengiriman, noResi, biaya);
         }
-        System.out.println("----------------------------------------------------------------------------------------------------------");
+        System.out.println(
+                "----------------------------------------------------------------------------------------------------------");
         System.out.printf("JUMLAH PENGIRIMAN: %d\n", totalPengiriman);
         System.out.printf("TOTAL PENDAPATAN: %s\n", new DecimalFormat("#,###").format(totalBiaya));
-        System.out.println("==========================================================================================================");
-        }
+        System.out.println(
+                "==========================================================================================================");
+    }
 }

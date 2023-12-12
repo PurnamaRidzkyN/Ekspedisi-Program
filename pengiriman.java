@@ -105,7 +105,6 @@ public class pengiriman {
                             System.out.print("Masukan ulang (y/n): ");
                             String pil = input.next();
                             if (pil.equalsIgnoreCase("y")) {
-
                             } else {
                                 break;
                             }
@@ -387,27 +386,29 @@ public class pengiriman {
                             int pilihanKurir = input.nextInt();
 
                             if (pilihanKurir == 1) {
-                                System.out.println("Data paket yang harus dikirim: ");
-                                if (k1 > 0) {
-                                    // Menampilkan data paket yang akan dikirim oleh kurir
-                                    for (int i = 0; i < k1; i++) {
-                                        System.out.println("======================================");
-                                        System.out.println("Data paket ke-" + (i + 1));
-                                        System.out.println("______________________________________________");
-                                        System.out.printf("Pengirim        : %-28s\n", dataPengiriman1[0][i]);
-                                        System.out.printf("No Hp pengirim  : %-28s\n", dataPengiriman1[1][i]);
-                                        System.out.printf("Penerima        : %-28s\n", dataPengiriman1[2][i]);
-                                        System.out.printf("No Hp Penerima  : %-28s\n", dataPengiriman1[3][i]);
-                                        System.out.printf("Tujuan          : %-28s\n", dataPengiriman1[4][i]);
-                                        System.out.printf("Keterangan      : %-23sgram \n", dataPaket1[1][i]);
-                                        System.out.printf("                  %-25skm \n", dataPaket1[2][i]);
-                                        System.out.printf("Biaya           : %-28s\n", dataPaket1[0][i]);
-                                        System.out.printf("No Resi         : %-28s\n", dataPengiriman1[5][i]);
-                                        System.out.println("______________________________________________");
+                                if (pilihanKurir == 1) {
+                                System.out.println("Pilih pesanan dari : ");
+                                System.out.println("1. Admin 1");
+                                System.out.println("2. Admin 2");
+                                System.out.println("3. Pelanggan");
+                                System.out.println("Pilihan anda : ");
+                                int pilihan = input.nextInt();
+
+                                    if (pilihan == 1) {
+                                        System.out.println("Masukkan no resi yang ingin di konfirmasi: ");
+                                        String noResi = input.next(); 
+                                        tampilRiwayat(pilihan, noResi, dataPengiriman1, dataPaket1, pilihanKurir);
+                                    
+                                    } else if (pilihan == 2) {
+                                        System.out.println("Masukkan no resi yang ingin di konfirmasi: ");
+                                        String noResi = input.next();
+                                        tampilRiwayat(pilihan, noResi, dataPengiriman2, dataPaket2, pilihanKurir);
+
+                                    } else if (pilihan == 3) {
+                                        System.out.println("Masukkan no resi yang ingin di konfirmasi: ");
+                                        String noResi = input.next();
+                                        tampilRiwayat(pilihan, noResi, dataPengiriman3, dataPaket3, pilihanKurir);
                                     }
-                                } else {
-                                    System.out.println("Tidak ada paket yang akan dikirim.");
-                                }
                             } else if (pilihanKurir == 2) {
                                 System.out.println("Pilih pesanan dari : ");
                                 System.out.println("1. Admin 1");
@@ -465,6 +466,7 @@ public class pengiriman {
                         }
                     }
                     break;
+                }
 
                 case 4:
                     while (true) {
@@ -816,7 +818,6 @@ public class pengiriman {
                 }
             }
         }
-
     }
 
     static void pencarianRiwayat(Scanner scanner, String[][] dataPengiriman, double[][] dataPaket, int k) {

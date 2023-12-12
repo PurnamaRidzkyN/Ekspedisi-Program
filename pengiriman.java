@@ -113,7 +113,6 @@ public class pengiriman {
                         if (loginBerhasil) {
                             while (true) {
                                 System.out.println(" _________________________");
-                                System.out.println("|                         |");
                                 System.out.println("|Pilih tindakan:          |");
                                 System.out.println("|1. Mengirim paket        |");
                                 System.out.println("|2. Melacak paket         |");
@@ -137,17 +136,19 @@ public class pengiriman {
                                         String namaPengirim = sc.nextLine();
                                         System.out.print("Masukkan nama penerima    : ");
                                         String namaPenerima = sc.nextLine();
-                                        System.out.println("Pilih lokasi Pengirim : ");
-                                        System.out.println("1. Surabaya");
-                                        System.out.println("2. Blitar");
-                                        System.out.println("3. Kediri");
-                                        System.out.println("4. Madiun");
-                                        System.out.println("5. Malang");
-                                        System.out.println("6. Batu");
-                                        System.out.println("7. Mojokerto");
-                                        System.out.println("8. Pasuruan");
-                                        System.out.println("9. Probolinggo");
-                                        System.out.println("10. lokasi tidak ada");
+                                        System.out.println("_____________________________");
+                                        System.out.println("| Pilih lokasi Pengirim :    |");
+                                        System.out.println("| 1. Surabaya                |");
+                                        System.out.println("| 2. Blitar                  |");
+                                        System.out.println("| 3. Kediri                  |");
+                                        System.out.println("| 4. Madiun                  |");
+                                        System.out.println("| 5. Malang                  |");
+                                        System.out.println("| 6. Batu                    |");
+                                        System.out.println("| 7. Mojokerto               |");
+                                        System.out.println("| 8. Pasuruan                |");
+                                        System.out.println("| 9. Probolinggo             |");
+                                        System.out.println("| 10. lokasi tidak ada       |");
+                                        System.out.println("|____________________________|");
                                         System.out.print("Pilihan anda : ");
                                         int ALpengirim = sc.nextInt();
                                         String alamatPengirim;
@@ -155,17 +156,19 @@ public class pengiriman {
                                             System.out.println("Masukan alamat pengirim : ");
                                             alamatPengirim = sc.next();
                                         }
-                                        System.out.println("Pilih lokasi Penerima : ");
-                                        System.out.println("1. Surabaya");
-                                        System.out.println("2. Blitar");
-                                        System.out.println("3. Kediri");
-                                        System.out.println("4. Madiun");
-                                        System.out.println("5. Malang");
-                                        System.out.println("6. Batu");
-                                        System.out.println("7. Mojokerto");
-                                        System.out.println("8. Pasuruan");
-                                        System.out.println("9. Probolinggo");
-                                        System.out.println("10. lokasi tidak ada");
+                                        System.out.println("_____________________________");
+                                        System.out.println("| Pilih lokasi Penerima :    |");
+                                        System.out.println("| 1. Surabaya                |");
+                                        System.out.println("| 2. Blitar                  |");
+                                        System.out.println("| 3. Kediri                  |");
+                                        System.out.println("| 4. Madiun                  |");
+                                        System.out.println("| 5. Malang                  |");
+                                        System.out.println("| 6. Batu                    |");
+                                        System.out.println("| 7. Mojokerto               |");
+                                        System.out.println("| 8. Pasuruan                |");
+                                        System.out.println("| 9. Probolinggo             |");
+                                        System.out.println("| 10. lokasi tidak ada       |");
+                                        System.out.println("|____________________________|");
                                         System.out.print("Pilihan anda : ");
                                         int ALpenerima = sc.nextInt();
                                         if ((ALpengirim == 10) || (ALpenerima == 10)) {
@@ -377,22 +380,26 @@ public class pengiriman {
                     if (masukKurir == 1) {
                         System.out.println("Selamat datang, Kurir!");
                         while (true) {
-                            System.out.println("Pilihan Kurir:");
-                            System.out.println("1. Lihat data paket yang akan dikirim");
-                            System.out.println("2. Lihat perjalanan paket");
-                            System.out.println("3. Konfirmasi paket");
-                            System.out.println("4. Keluar");
+                            System.out.println("_________________________________________");
+                            System.out.println("| Pilihan Kurir:                         |");
+                            System.out.println("| 1. Lihat data paket yang akan dikirim  |");
+                            System.out.println("| 2. Lihat perjalanan paket              |");
+                            System.out.println("| 3. Konfirmasi paket                    |");
+                            System.out.println("| 4. Keluar                              |");
+                            System.out.println("|________________________________________|");
                             System.out.print("Pilihan Anda: ");
                             int pilihanKurir = input.nextInt();
 
                             if (pilihanKurir == 1) {
                                 if (pilihanKurir == 1) {
-                                System.out.println("Pilih pesanan dari : ");
-                                System.out.println("1. Admin 1");
-                                System.out.println("2. Admin 2");
-                                System.out.println("3. Pelanggan");
-                                System.out.println("Pilihan anda : ");
-                                int pilihan = input.nextInt();
+                                    System.out.println("________________________");
+                                    System.out.println("| Pilih pesanan dari :  |");
+                                    System.out.println("| 1. Admin 1            |");
+                                    System.out.println("| 2. Admin 2            |");
+                                    System.out.println("| 3. Pelanggan          |");
+                                    System.out.println("|_______________________|");
+                                    System.out.println("Pilihan anda : ");
+                                    int pilihan = input.nextInt();
 
                                     if (pilihan == 1) {
                                         System.out.println("Masukkan no resi yang ingin di konfirmasi: ");
@@ -410,10 +417,12 @@ public class pengiriman {
                                         tampilRiwayat(pilihan, noResi, dataPengiriman3, dataPaket3, pilihanKurir);
                                     }
                             } else if (pilihanKurir == 2) {
-                                System.out.println("Pilih pesanan dari : ");
-                                System.out.println("1. Admin 1");
-                                System.out.println("2. Admin 2");
-                                System.out.println("3. Pelanggan");
+                                System.out.println("________________________");
+                                System.out.println("| Pilih dari :          |");
+                                System.out.println("| 1. Admin 1            |");
+                                System.out.println("| 2. Admin 2            |");
+                                System.out.println("| 3. Pelanggan          |");
+                                System.out.println("|_______________________|");
                                 int pilihan = input.nextInt();
                                 if (pilihan == 1) {
                                     melacakPaket(dataPengiriman1, k1, sampai1);
@@ -423,10 +432,12 @@ public class pengiriman {
                                     melacakPaket(dataPengiriman3, k3, sampai3);
                                 }
                             } else if (pilihanKurir == 3) {
-                                System.out.println("Pilih pesanan dari : ");
-                                System.out.println("1. Admin 1");
-                                System.out.println("2. Admin 2");
-                                System.out.println("3. Pelanggan");
+                                System.out.println("________________________");
+                                System.out.println("| Pilih dari :          |");
+                                System.out.println("| 1. Admin 1            |");
+                                System.out.println("| 2. Admin 2            |");
+                                System.out.println("| 3. Pelanggan          |");
+                                System.out.println("|_______________________|");
                                 System.out.println("Pilihan anda : ");
                                 int pilihan = input.nextInt();
 
@@ -477,7 +488,6 @@ public class pengiriman {
                             String alamatPenerima;
                             while (true) {
                                 System.out.println(" _________________________");
-                                System.out.println("|                         |");
                                 System.out.println("|Pilih tindakan:          |");
                                 System.out.println("|1. Mengirim paket        |");
                                 System.out.println("|2. Riwayat pembelian     |");
@@ -500,17 +510,19 @@ public class pengiriman {
                                         String namaPengirim = sc.nextLine();
                                         System.out.print("Masukkan nama penerima    : ");
                                         String namaPenerima = sc.nextLine();
-                                        System.out.println("Pilih lokasi Pengirim : ");
-                                        System.out.println("1. Surabaya");
-                                        System.out.println("2. Blitar");
-                                        System.out.println("3. Kediri");
-                                        System.out.println("4. Madiun");
-                                        System.out.println("5. Malang");
-                                        System.out.println("6. Batu");
-                                        System.out.println("7. Mojokerto");
-                                        System.out.println("8. Pasuruan");
-                                        System.out.println("9. Probolinggo");
-                                        System.out.println("10. lokasi tidak ada");
+                                        System.out.println("_____________________________");
+                                        System.out.println("| Pilih lokasi Pengirim :    |");
+                                        System.out.println("| 1. Surabaya                |");
+                                        System.out.println("| 2. Blitar                  |");
+                                        System.out.println("| 3. Kediri                  |");
+                                        System.out.println("| 4. Madiun                  |");
+                                        System.out.println("| 5. Malang                  |");
+                                        System.out.println("| 6. Batu                    |");
+                                        System.out.println("| 7. Mojokerto               |");
+                                        System.out.println("| 8. Pasuruan                |");
+                                        System.out.println("| 9. Probolinggo             |");
+                                        System.out.println("| 10. lokasi tidak ada       |");
+                                        System.out.println("|____________________________|");
                                         System.out.print("Pilihan anda : ");
                                         int ALpengirim = sc.nextInt();
                                         String alamatPengirim;
@@ -518,17 +530,19 @@ public class pengiriman {
                                             System.out.println("Masukan alamat pengirim : ");
                                             alamatPengirim = sc.next();
                                         }
-                                        System.out.println("Pilih lokasi Penerima : ");
-                                        System.out.println("1. Surabaya");
-                                        System.out.println("2. Blitar");
-                                        System.out.println("3. Kediri");
-                                        System.out.println("4. Madiun");
-                                        System.out.println("5. Malang");
-                                        System.out.println("6. Batu");
-                                        System.out.println("7. Mojokerto");
-                                        System.out.println("8. Pasuruan");
-                                        System.out.println("9. Probolinggo");
-                                        System.out.println("10. lokasi tidak ada");
+                                        System.out.println("_____________________________");
+                                        System.out.println("| Pilih lokasi Penerima :    |");
+                                        System.out.println("| 1. Surabaya                |");
+                                        System.out.println("| 2. Blitar                  |");
+                                        System.out.println("| 3. Kediri                  |");
+                                        System.out.println("| 4. Madiun                  |");
+                                        System.out.println("| 5. Malang                  |");
+                                        System.out.println("| 6. Batu                    |");
+                                        System.out.println("| 7. Mojokerto               |");
+                                        System.out.println("| 8. Pasuruan                |");
+                                        System.out.println("| 9. Probolinggo             |");
+                                        System.out.println("| 10. lokasi tidak ada       |");
+                                        System.out.println("|____________________________|");
                                         System.out.print("Pilihan anda : ");
                                         int ALpenerima = sc.nextInt();
                                         if ((ALpengirim == 10) || (ALpenerima == 10)) {
@@ -612,8 +626,7 @@ public class pengiriman {
                                                     scanner.nextLine();
 
                                                     if (cchoice == 1) {
-                                                        System.out
-                                                                .println("Paket Anda segera antar ke Ekspedisi DINPUR");
+                                                        System.out.println("Paket Anda segera antar ke Ekspedisi DINPUR");
                                                     } else if (cchoice == 2) {
                                                         System.out.println("======================================");
                                                         System.out.print("Masukkan alamat pengambilan paket: ");
@@ -780,30 +793,39 @@ public class pengiriman {
         Scanner scanner = new Scanner(System.in);
         while (true) {
             if (loginBerhasil) {
-                System.out.println("1. Menampilkan semua riwayat");
-                System.out.println("2. Menampilkan laporan Bulanan");
-                System.out.println("3. Keluar");
-
+                System.out.println("_________________________________");
+                System.out.println("| 1. Menampilkan semua riwayat  |");
+                System.out.println("| 2. Menampilkan laporan Bulanan|");
+                System.out.println("| 3. Keluar                     |");
+                System.out.println("|_______________________________|");
                 System.out.print("Masukan pilihan: ");
                 int choice = scanner.nextInt();
+
                 if (choice == 1) {
-                    System.out.println("Pilih admin");
-                    System.out.println("1.Admin 1");
-                    System.out.println("2.Admin 2");
+                    System.out.println("________________________");
+                    System.out.println("| Pilih dari :          |");
+                    System.out.println("| 1. Admin 1            |");
+                    System.out.println("| 2. Admin 2            |");
+                    System.out.println("| 3. Pelanggan          |");
+                    System.out.println("|_______________________|");
                     System.out.print("Masukan pilihan anda: ");
-                    choice = scanner.nextInt();
+                    choice = scanner.nextInt();    
                     if (choice == 1) {
                         pencarianRiwayat(scanner, dataPengiriman1, dataPaket1, k1);
                         break;
                     } else if (choice == 2) {
                         pencarianRiwayat(scanner, dataPengiriman2, dataPaket2, k2);
+                    } else if (choice== 3){
+                        pencarianRiwayat(scanner, dataPengiriman3, dataPaket3, k3);
                     }
                 } else if (choice == 2) {
-                    System.out.println("Pilih : ");
-                    System.out.println("1.Admin 1");
-                    System.out.println("2.Admin 2");
-                    System.out.println("3.Pelanggan");
-                    System.out.println("4.Keluar");
+                    System.out.println("________________________");
+                    System.out.println("| Pilih dari :          |");
+                    System.out.println("| 1. Admin 1            |");
+                    System.out.println("| 2. Admin 2            |");
+                    System.out.println("| 3. Pelanggan          |");
+                    System.out.println("| 4. Keluar             |");
+                    System.out.println("|_______________________|");
                     System.out.print("Masukan pilihan anda: ");
                     choice = scanner.nextInt();
                     if (choice == 1) {

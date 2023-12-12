@@ -56,6 +56,7 @@ public class pengiriman {
         String[] sampai2 = new String[maxData];
         String[] sampai3 = new String[maxData];
         double jarakPengiriman;
+        boolean keluar= false;
 
         while (true) {
             System.out.println("============================================");
@@ -67,6 +68,7 @@ public class pengiriman {
             System.out.println("3.Kurir");
             System.out.println("4.Pelanggan");
             System.out.println("5.Ubah bahasa");
+            System.out.println("6.Keluar program");
             System.out.println("============================================");
             System.out.print("Masukan pilihan anda: ");
             int menu = input.nextInt();
@@ -183,7 +185,7 @@ public class pengiriman {
                                         String noHpPenerima = sc.next();
 
                                         // Proses penghitungan biaya pengiriman
-                                        
+                  
                                         System.out.println(jarakPengiriman);
                                         double beratPaket;
                                         System.out.print("Berat paket (gram)        : ");
@@ -752,7 +754,15 @@ public class pengiriman {
                         break;
                     }
                     break;
-
+                case 5:
+                case 6:
+                    System.out.println("Terima kasih telah menggunak progam ekspedisi DINPUR");
+                    keluar=true;
+                    break;
+            
+                }
+            if(keluar){
+                break;
             }
         }
     }

@@ -52,6 +52,9 @@ public class pengiriman {
                 { 70, 54, 167, 208, 55, 64, 66, 0, 46 }, // Pasuruan
                 { 106, 193, 203, 244, 112, 123, 132, 46, 0 } // Probolinggo indeks 8
         };
+        String[] sampai1 = new String[maxData];
+        String[] sampai2 = new String[maxData];
+        String[] sampai3 = new String[maxData];
         double jarakPengiriman;
 
         while (true) {
@@ -174,9 +177,9 @@ public class pengiriman {
                                             jarakPengiriman = jarak[ALpengirim][ALpenerima];
                                         }
 
-                                        System.out.println("Masukkan no hp pengirim   : ");
+                                        System.out.print("Masukkan no hp pengirim   : ");
                                         String noHpPengirim = sc.next();
-                                        System.out.println("Masukkan no hp penerima   : ");
+                                        System.out.print("Masukkan no hp penerima   : ");
                                         String noHpPenerima = sc.next();
 
                                         // Proses penghitungan biaya pengiriman
@@ -336,9 +339,9 @@ public class pengiriman {
                                 } else if (choice == 2) {
                                     // Melacak Paket
                                     if (login == 1) {
-                                        melacakPaket(dataPengiriman1, k1);
+                                        melacakPaket(dataPengiriman1, k1, sampai1);
                                     } else if (login == 2) {
-                                        melacakPaket(dataPengiriman2, k2);
+                                        melacakPaket(dataPengiriman2, k2, sampai2);
                                     }
 
                                 } else if (choice == 3) {
@@ -376,7 +379,8 @@ public class pengiriman {
                             System.out.println("Pilihan Kurir:");
                             System.out.println("1. Lihat data paket yang akan dikirim");
                             System.out.println("2. Lihat perjalanan paket");
-                            System.out.println("3. Keluar");
+                            System.out.println("3. Konfirmasi paket");
+                            System.out.println("4. Keluar");
                             System.out.print("Pilihan Anda: ");
                             int pilihanKurir = input.nextInt();
 
@@ -403,17 +407,63 @@ public class pengiriman {
                                     System.out.println("Tidak ada paket yang akan dikirim.");
                                 }
                             } else if (pilihanKurir == 2) {
-                                System.out.print("Masukkan no resi untuk melihat riwayat pesanan: ");
-                                String noResi = input.next();
-                                melacakPaket(dataPengiriman1, k1);
+                                System.out.println("Pilih pesanan dari : ");
+                                System.out.println("1. Admin 1");
+                                System.out.println("2. Admin 2");
+                                System.out.println("3. Pelanggan");
+                                int pilihan = input.nextInt();
+                                if (pilihan == 1) {
+                                    melacakPaket(dataPengiriman1, k1, sampai1);
+                                } else if (pilihan == 2) {
+                                    melacakPaket(dataPengiriman2, k2, sampai2);
+                                } else if (pilihan == 3) {
+                                    melacakPaket(dataPengiriman3, k3, sampai3);
+                                }
                             } else if (pilihanKurir == 3) {
-                                break;
+                                System.out.println("Pilih pesanan dari : ");
+                                System.out.println("1. Admin 1");
+                                System.out.println("2. Admin 2");
+                                System.out.println("3. Pelanggan");
+                                System.out.println("Pilihan anda : ");
+                                int pilihan = input.nextInt();
+
+                                    if (pilihan == 1) {
+                                        System.out.println("Masukkan no resi yang ingin di konfirmasi: ");
+                                        String noResi = input.next(); 
+                                        for (int i=0; i<k1; i++) {
+                                            if(noResi.equalsIgnoreCase(dataPengiriman1[5][i])){
+                                            sampai1[i] = dataPengiriman1[5][i];
+                                            System.out.println("Paket dengan no resi ini telah sampai.");
+                                            }
+                                        }
+                                    } else if (pilihan == 2) {
+                                        System.out.println("Masukkan no resi yang ingin di konfirmasi: ");
+                                        String noResi = input.next();
+                                        for (int i=0; i<k2; i++) {
+                                            if(noResi.equalsIgnoreCase(dataPengiriman2[5][i])) {
+                                                sampai2[i] = dataPengiriman2[5][i];
+                                                System.out.println("Paket dengan no resi ini telah sampai.");
+                                            }
+                                        }
+                                    } else if (pilihan == 3) {
+                                        System.out.println("Masukkan no resi yang ingin di konfirmasi: ");
+                                        String noResi = input.next();
+                                        for (int i=0; i<k3; i++) {
+                                            if(noResi.equalsIgnoreCase(dataPengiriman3[5][i])) {
+                                                sampai3[i] = dataPengiriman3[5][i];
+                                                System.out.println("Paket dengan no resi ini telah sampai.");
+                                            }
+                                        }
+                                    }
+
+                                    
+                                }else {
+                                    break;
+                                }
+                                
                             }
                         }
-                    } else if (masukKurir == 0) {
                         break;
-                    }
-                    break;
 
                 case 4:
                     while (true) {
@@ -671,13 +721,13 @@ public class pengiriman {
                                             System.out.print("Masukan nama pengirim : ");
                                             String namaPengirim = scanner.next();
                                             System.out.println("======================================");
-                                            tampilRiwayat(pil, namaPengirim, dataPengiriman1, dataPaket1, k1);
+                                            tampilRiwayat(pil, namaPengirim, dataPengiriman3, dataPaket3, k3);
 
                                         } else if (pil == 2) {
                                             System.out.print("Masukan no resi : ");
                                             String noResi = scanner.next();
                                             System.out.println("======================================");
-                                            tampilRiwayat(pil, noResi, dataPengiriman1, dataPaket1, k1);
+                                            tampilRiwayat(pil, noResi, dataPengiriman3, dataPaket3, k3);
 
                                         } else if (pil == 3) {
                                             System.out.println("======================================");
@@ -685,7 +735,7 @@ public class pengiriman {
                                         }
                                     }
                                 } else if (choice == 3) {
-                                    melacakPaket(dataPengiriman1, k1);
+                                    melacakPaket(dataPengiriman3, k3, sampai3);
                                 } else if (choice == 4) {
                                     // Implementasi pilihan keluar
                                     System.out.println("Anda telah keluar ");
@@ -849,9 +899,9 @@ public class pengiriman {
             }
             for (int i = 0; i < logindata.length; i++) {
                 if (user.equalsIgnoreCase(logindata[i][0]) && pass.equals(logindata[i][1])) {
-                    System.out.println("======================================");
+                    System.out.println("===========================================");
                     System.out.println("Login berhasil!");
-                    System.out.println("======================================");
+                    System.out.println("===========================================");
 
                     return i + 1;
                 }
@@ -914,18 +964,18 @@ public class pengiriman {
         return total;
     }
 
-    static void melacakPaket(String[][] dataPengiriman, int k) {
+    static void melacakPaket(String[][] dataPengiriman, int k, String [] sampai) {
         while (true) {
             Scanner input = new Scanner(System.in);
             LocalDate date = LocalDate.now();
             LocalTime time = LocalTime.now();
-            System.out.print("Masukkan No Resi : ");
+            System.out.print("Masukkan No Resi yang ingin dikonfirmasi: ");
             String resi = input.nextLine();
             boolean riwayatDitemukan = false;
             for (int i = 0; i < dataPengiriman[5].length; i++) {
                 for (int j = 0; j < dataPengiriman.length; j++) {
                     if (resi.equalsIgnoreCase(dataPengiriman[5][i])) {
-                        System.out.println(" ");
+                        System.out.println( " ");
                         System.out.println("No. Resi                   " + dataPengiriman[j + 5][i]);
                         System.out.println("- " + date + " " + time + " Pesanan Dibuat");
                         System.out.println("|");
@@ -941,11 +991,18 @@ public class pengiriman {
                         LocalTime time4 = time3.plusHours(5);
                         System.out.println("- " + date2 + " " + time4 + " Paket telah diambil kurir daerah anda");
                         System.out.println("|");
-                        LocalTime time5 = time4.plusHours(2);
-                        LocalDate date3 = date2.plusDays(1);
-                        System.out.println("- " + date3 + " " + time5 + " Paket telah diterima");
-                        System.out.println("Terima kasih telah memakai jasa Ekspedisi Dinpur!");
-                        riwayatDitemukan = true;
+                        
+                        if (sampai[i] == dataPengiriman[5][i] ) {
+                            LocalTime time5 = time4.plusHours(2);
+                            LocalDate date3 = date2.plusDays(1);
+                            System.out.println("- " + date3 + " " + time5 + " Paket telah diterima");
+                            System.out.println(" ");
+                            System.out.println("Terima kasih telah memakai jasa Ekspedisi Dinpur!");
+                            riwayatDitemukan = true;
+                        } else {
+                            System.out.println("Konfirmasi paket belum sampai ke alamat tujuan.");
+                            riwayatDitemukan = true;
+                        }
                         break;
                     }
                     riwayatDitemukan = false;

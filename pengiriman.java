@@ -186,7 +186,7 @@ public class pengiriman {
 
                                         // Proses penghitungan biaya pengiriman
                   
-                                        System.out.println(jarakPengiriman);
+                                        
                                         double beratPaket;
                                         System.out.print("Berat paket (gram)        : ");
                                         beratPaket = sc.nextDouble();

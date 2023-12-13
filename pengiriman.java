@@ -20,7 +20,7 @@ public class pengiriman {
         };
         String[][] loginKurir = {
                 { "Kurir1", "kr1" },
-                { "Kurir2", "kr1" }
+                { "Kurir2", "kr2" }
         };
         String[][] loginPelanggan = {
                 { "Pelanggan", "aku" }
@@ -386,7 +386,7 @@ public class pengiriman {
 
                 case 3:
                     int masukKurir = login(loginKurir);
-                    if (masukKurir == 1) {
+                    if ((masukKurir == 1)||(masukKurir == 2)) {
                         System.out.println("Selamat datang, Kurir!");
                         while (true) {
                             System.out.println("_________________________________________");
@@ -1114,7 +1114,7 @@ public class pengiriman {
                                 break;
                             case 3: // Courier
                                 masukKurir = loginIng(loginKurir);
-                                if (masukKurir == 1) {
+                                if ((masukKurir == 1)||(masukKurir == 2)) {
                                     System.out.println("Welcome, courier!");
                                     while (true) {
                                         System.out.println("_________________________________________");

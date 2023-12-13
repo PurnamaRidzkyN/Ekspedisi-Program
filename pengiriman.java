@@ -1059,7 +1059,7 @@ public class pengiriman {
                                                 if (login == 1) {
                                                     trackingPackages(dataPengiriman1, k1, sampai1);
                                                 } else if (login == 2) {
-                                                    trackingPackages(dataPengiriman2, k2, sampai2);
+                                                     trackingPackages(dataPengiriman2, k2, sampai2);
                                                 }
 
                                             } else if (choice == 3) {
@@ -1575,8 +1575,57 @@ public class pengiriman {
     public static void manager(double[][] dataPaket1, String[][] dataPengiriman1, int k1, int b, boolean loginBerhasil,
             double[][] dataPaket2, String[][] dataPengiriman2, int k2, String[][] dataPengiriman3,
             double[][] dataPaket3, int k3) {
+                Scanner scanner = new Scanner(System.in);
+                while (true) {
+                    if (loginBerhasil) {
+                        System.out.println("_________________________________");
+                        System.out.println("| 1. Displays all history       |");
+                        System.out.println("| 2. Displays Monthly reports   |");
+                        System.out.println("| 3. Exit                       |");
+                        System.out.println("|_______________________________|");
+                        System.out.print("Enter your choice: ");
+                        int choice = scanner.nextInt();
 
-    }
+                        if (choice == 1) {
+                            System.out.println("________________________");
+                            System.out.println("| Choose from :         |");
+                            System.out.println("| 1. Admin 1            |");
+                            System.out.println("| 2. Admin 2            |");
+                            System.out.println("| 3. Customer           |");
+                            System.out.println("|_______________________|");
+                            System.out.print("Enter your choice: ");
+                            choice = scanner.nextInt();    
+                            if (choice == 1) {
+                                historySearch(scanner, dataPengiriman1, dataPaket1, k1);
+                                break;
+                            } else if (choice == 2) {
+                                historySearch(scanner, dataPengiriman2, dataPaket2, k2);
+                            } else if (choice== 3){
+                                historySearch(scanner, dataPengiriman3, dataPaket3, k3);
+                            }
+                        } else if (choice == 2) {
+                            System.out.println("________________________");
+                            System.out.println("| Choose from :         |");
+                            System.out.println("| 1. Admin 1            |");
+                            System.out.println("| 2. Admin 2            |");
+                            System.out.println("| 3. Customer           |");
+                            System.out.println("| 4. Exit               |");
+                            System.out.println("|_______________________|");
+                            System.out.print("Enter your choice: ");
+                            choice = scanner.nextInt();
+                            if (choice == 1) {
+                                adminReport(dataPengiriman1, dataPaket1, k1);
+                            } else if (choice == 2) {
+                                adminReport(dataPengiriman2, dataPaket2, k2);
+                            } else if (choice == 3) {
+                                customerReport(dataPengiriman3, dataPaket3, k3);
+                            }
+                        } else if (choice == 3) {
+                            break;
+                        }
+                    }
+                }
+            }
 
     static void pencarianRiwayat(Scanner scanner, String[][] dataPengiriman, double[][] dataPaket, int k) {
         while (true) {
@@ -1664,7 +1713,87 @@ public class pengiriman {
 
     //Bilingual
     static void historySearch(Scanner scanner, String[][] dataPengiriman, double[][] dataPaket, int k) {
+        while (true) {
+            // ... Section for purchase history ...
+            System.out.println(" =========================================");
+            System.out.println("|1. Via the sender's name                 |");
+            System.out.println("|2. Via the sender's cellphone number     |");
+            System.out.println("|3. Via the recipient's name              |");
+            System.out.println("|4. Via the recipient's cellphone number  |");
+            System.out.println("|5. Via the recipient's address           |");
+            System.out.println("|6. Via receipt number                    |");
+            System.out.println("|7. Number of history                     |");
+            System.out.println("|8. Displays history                      |");
+            System.out.println("|9. Back                                  |");
+            System.out.println(" =========================================");
+            System.out.print("Your choice : ");
+            int pil = scanner.nextInt();
 
+            if (pil == 1) {
+                System.out.print("Enter the sender's name : ");
+                String namaPengirim = scanner.next();
+                System.out.println("======================================");
+                displayHistory(pil, namaPengirim, dataPengiriman, dataPaket, k);
+
+            } else if (pil == 2) {
+                System.out.print("Enter the sender's cellphone number : ");
+                String nomorPengirim = scanner.next();
+                System.out.println("======================================");
+                displayHistory(pil, nomorPengirim, dataPengiriman, dataPaket, k);
+
+            } else if (pil == 3) {
+                System.out.print("Enter the recipient's name : ");
+                String namaPenerima = scanner.next();
+                System.out.println("======================================");
+                displayHistory(pil, namaPenerima, dataPengiriman, dataPaket, k);
+
+            } else if (pil == 4) {
+                System.out.print("Enter the recipient's cellphone number : ");
+                String nomorPenerima = scanner.next();
+                System.out.println("======================================");
+                displayHistory(pil, nomorPenerima, dataPengiriman, dataPaket, k);
+
+            } else if (pil == 5) {
+                System.out.print("Enter the recipient's address : ");
+                String alamatPenerima = scanner.next();
+                System.out.println("======================================");
+                displayHistory(pil, alamatPenerima, dataPengiriman, dataPaket, k);
+
+            } else if (pil == 6) {
+                System.out.print("Enter receipt number : ");
+                String noResi = scanner.next();
+                System.out.println("======================================");
+                displayHistory(pil, noResi, dataPengiriman, dataPaket, k);
+
+            } else if (pil == 7) {
+                System.out.println("======================================");
+                System.err.println("Number of Transactions : " + k);
+
+            } else if (pil == 8) {
+                System.out.println("======================================");
+                System.out.println("Shows all history:");
+                for (int i = 0; i < k; i++) {
+                    System.out.println("======================================");
+                    System.out.println("Delivery data to" + (i + 1));
+                    for (int j = 0; j < dataPengiriman.length - 1; j++) {
+                        System.out.println("Sender's name                : " + dataPengiriman[j][i]);
+                        System.out.println("Sender's cellphone number    : " + dataPengiriman[j + 1][i]);
+                        System.out.println("Recipient's name             : " + dataPengiriman[j + 2][i]);
+                        System.out.println("Recipient's cellphone number : " + dataPengiriman[j + 3][i]);
+                        System.out.println("Recipient Address            : " + dataPengiriman[j + 4][i]);
+                        System.out.println("No receipt                   : " + dataPengiriman[j + 5][i]);
+                        System.out.println("Shipping costs               : " + dataPaket[j][i]);
+                        System.out.println("Package Weight               : " + dataPaket[j + 1][i]);
+                        System.out.println("Delivery Distance            : " + dataPaket[j + 2][i]);
+                        break;
+                    }
+                }
+
+            } else if (pil == 9) {
+                System.out.println("======================================");
+                break;
+            }
+        }
     }
 
     static int login(String[][] logindata) {
@@ -1744,7 +1873,30 @@ public class pengiriman {
 
     //bilingual
     static void displayHistory(int pil, String data, String[][] dataPengiriman, double[][] dataPaket, int k) {
-
+        boolean riwayatDitemukan = false;
+        for (int i = 0; i < k; i++) {
+            for (int j = pil - 1;;) {
+                if (data.equalsIgnoreCase(dataPengiriman[j][i])) {
+                    System.out.println("Sender's name                : " + dataPengiriman[j][i]);
+                    System.out.println("Sender's cellphone number    : " + dataPengiriman[j + 1][i]);
+                    System.out.println("Recipient's name             : " + dataPengiriman[j + 2][i]);
+                    System.out.println("Recipient's cellphone number : " + dataPengiriman[j + 3][i]);
+                    System.out.println("Recipient's address          : " + dataPengiriman[j + 4][i]);
+                    System.out.println("No receipt                   : " + dataPengiriman[j + 5][i]);
+                    System.out.println("Shipping costs               : " + dataPaket[j][i]);
+                    System.out.println("Package weight               : " + dataPaket[j + 1][i]);
+                    System.out.println("Delivery Distance            : " + dataPaket[j + 2][i]);
+                    riwayatDitemukan = true;
+                    break;
+                }
+            }
+            if (riwayatDitemukan) {
+                break;
+            }
+        }
+        if (!riwayatDitemukan) {
+            System.out.println("History not found.");
+        }
     }
 
     static double biayaPengiriman(double berat, double jarak, double panjang, double lebar, double tinggi,
@@ -1832,13 +1984,64 @@ public class pengiriman {
 
     //Bilingual
     static void trackingPackages(String[][] dataPengiriman, int k, String[] sampai) {
+        while (true) {
+            Scanner input = new Scanner(System.in);
+            LocalDate date = LocalDate.now();
+            LocalTime time = LocalTime.now();
+            System.out.print("Enter the Receipt Number you want to confirm: ");
+            String resi = input.nextLine();
+            boolean riwayatDitemukan = false;
+            for (int i = 0; i < dataPengiriman[5].length; i++) {
+                for (int j = 0; j < dataPengiriman.length; j++) {
+                    if (resi.equalsIgnoreCase(dataPengiriman[5][i])) {
+                        System.out.println(" ");
+                        System.out.println("Receipt Number                   " + dataPengiriman[j + 5][i]);
+                        System.out.println("- " + date + " " + time + " Order Created");
+                        System.out.println("|");
+                        LocalTime time2 = time.plusHours(2);
+                        System.out.println("- " + date + " " + time2 + " The order has been brought by the courier to the destination "
+                                + dataPengiriman[j + 4][i]);
+                        System.out.println("|");
+                        LocalDate date2 = date.plusDays(1);
+                        LocalTime time3 = time2.plusHours(3);
+                        System.out.println("- " + date2 + " " + time3
+                                + " The order has been at the last transit hub location " + dataPengiriman[j + 4][i]);
+                        System.out.println("|");
+                        LocalTime time4 = time3.plusHours(5);
+                        System.out.println("- " + date2 + " " + time4 + " The package has been picked up by your local courier");
+                        System.out.println("|");
 
+                        if (sampai[i] == dataPengiriman[5][i]) {
+                            LocalTime time5 = time4.plusHours(2);
+                            LocalDate date3 = date2.plusDays(1);
+                            System.out.println("- " + date3 + " " + time5 + " Package has been received");
+                            System.out.println(" ");
+                            System.out.println("Thank you for using DINPUR Expedition services!");
+                            riwayatDitemukan = true;
+                        } else {
+                            System.out.println("Confirm that the package has not arrived at the destination address.");
+                            riwayatDitemukan = true;
+                        }
+                        break;
+                    }
+                    riwayatDitemukan = false;
+                    break;
+                }
+                if (riwayatDitemukan) {
+                    break;
+                }
+                if (riwayatDitemukan == false) {
+                    System.out.println("Package does not exist.");
+                }
+
+            }
+            break;
+        }
     }
 
 
     static double pembayaran(int bayar, double total) {
         Scanner input = new Scanner(System.in);
-
         if (bayar == 1) {
             System.out.println("Kirim ke no rekening ini: (bank pur) 92341761128 ");
             System.out.println("1. Sudah");
@@ -1866,7 +2069,30 @@ public class pengiriman {
 
     //bilingual
     static double payment(int bayar, double total) {
+        Scanner input = new Scanner(System.in);
+        if (bayar == 1) {
+            System.out.println("Send to this account number: (bank pur) 92341761128 ");
+            System.out.println("1. Already");
+            System.out.println("2. Cancel");
+            int rekening = input.nextInt();
 
+            if (rekening == 1) {
+                return 0;
+            } else {
+                return -1;
+            }
+        } else {
+            System.out.println("======================================");
+            System.out.print("Enter the customer's amount : ");
+            int uang = input.nextInt();
+            double kembalian = uang - total;
+
+            if (kembalian >= 0) {
+                return kembalian;
+            } else {
+                return -1;
+            }
+        }
     }
 
     public static void laporanAdmin(String[][] dataPengiriman, double[][] dataPaket, int k) {
@@ -1901,7 +2127,7 @@ public class pengiriman {
             totalBiaya += biaya;
             totalPengiriman++;
 
-            System.out.printf("| %-4d | %-20s | %-20s | %-21s | %-10s | %-13s |\n",
+            System.out.printf("| %-4s | %-20s | %-20s | %-21s | %-10s | %-13s |\n",
                     totalPengiriman, namaPengirim, namaPenerima, tanggalPengiriman, noResi, biaya);
         }
         System.out.println(
@@ -1914,6 +2140,46 @@ public class pengiriman {
 
     //Bilingual
     public static void adminReport(String[][] dataPengiriman, double[][] dataPaket, int k) {
+        System.out.println(
+                "==========================================================================================================");
+        System.out.println(
+                "                               DINPUR EXPEDITION ADMIN MONTHLY REPORT                                     ");
+        System.out.println(
+                "==========================================================================================================");
+
+        // Tanggal laporan
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+        LocalDateTime now = LocalDateTime.now();
+        String today = formatter.format(now);
+
+        // Header laporan
+        System.out.printf("| %-4s | %-20s | %-20s | %-21s | %-10s | %-13s |\n",
+                "NUMBER", "SENDER'S NAME", "RECIPIENT'S NAME", "DELIVERY DATE", "NO RECEIPT", "TOTAL COST");
+        System.out.println(
+                "----------------------------------------------------------------------------------------------------------");
+
+        // Data pengiriman
+        double totalBiaya = 0;
+        int totalPengiriman = 0;
+        for (int i = 0; i <= k - 1; i++) {
+            String namaPengirim = dataPengiriman[0][i];
+            String namaPenerima = dataPengiriman[2][i];
+            String tanggalPengiriman = today;
+            String noResi = dataPengiriman[5][i];
+            Double biaya = dataPaket[0][i];
+
+            totalBiaya += biaya;
+            totalPengiriman++;
+
+            System.out.printf("| %-4d | %-20s | %-20s | %-21s | %-10s | %-13s |\n",
+                    totalPengiriman, namaPengirim, namaPenerima, tanggalPengiriman, noResi, biaya);
+        }
+        System.out.println(
+                "----------------------------------------------------------------------------------------------------------");
+        System.out.printf("SHIPPING AMOUNT: %d\n", totalPengiriman);
+        System.out.printf("TOTAL INCOME: %s\n", new DecimalFormat("#,###").format(totalBiaya));
+        System.out.println(
+                "==========================================================================================================");
 
     }
 
@@ -1960,7 +2226,47 @@ public class pengiriman {
                 "==========================================================================================================");
     }
 
+    //Bilingual
     public static void customerReport(String[][] dataPengiriman, double[][] dataPaket, int k) {
+        System.out.println(
+                "==========================================================================================================");
+        System.out.println(
+                "                               DINPUR EXPEDITION CUSTOMER MONTHLY REPORT                                 ");
+        System.out.println(
+                "==========================================================================================================");
 
+        // Tanggal laporan
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+        LocalDateTime now = LocalDateTime.now();
+        String today = formatter.format(now);
+
+        // Header laporan
+        System.out.printf("| %-4s | %-20s | %-20s | %-21s | %-10s | %-13s |\n",
+                "NO", "SENDER'S NAME", "RECIPIENT'S NAME", "DELIVERY DATE", "NO RECEIPT", "TOTAL COST");
+        System.out.println(
+                "----------------------------------------------------------------------------------------------------------");
+
+        // Data pengiriman
+        double totalBiaya = 0;
+        int totalPengiriman = 0;
+        for (int i = 0; i <= k - 1; i++) {
+            String namaPengirim = dataPengiriman[0][i];
+            String namaPenerima = dataPengiriman[2][i];
+            String tanggalPengiriman = today;
+            String noResi = dataPengiriman[5][i];
+            Double biaya = dataPaket[0][i];
+
+            totalBiaya += biaya;
+            totalPengiriman++;
+
+            System.out.printf("| %-4d | %-20s | %-20s | %-21s | %-10s | %-13s |\n",
+                    totalPengiriman, namaPengirim, namaPenerima, tanggalPengiriman, noResi, biaya);
+        }
+        System.out.println(
+                "----------------------------------------------------------------------------------------------------------");
+        System.out.printf("SHIPPING AMOUNT: %d\n", totalPengiriman);
+        System.out.printf("TOTAL INCOME: %s\n", new DecimalFormat("#,###").format(totalBiaya));
+        System.out.println(
+                "==========================================================================================================");
     }
 }

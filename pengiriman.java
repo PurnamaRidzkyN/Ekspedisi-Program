@@ -386,7 +386,7 @@ public class pengiriman {
 
                 case 3:
                     int masukKurir = login(loginKurir);
-                    if ((masukKurir == 1)||(masukKurir == 2)) {
+                    if ((masukKurir == 1) || (masukKurir == 2)) {
                         System.out.println("Selamat datang, Kurir!");
                         while (true) {
                             System.out.println("_________________________________________");
@@ -713,16 +713,16 @@ public class pengiriman {
                                             }
                                             // memasukkan array 2 dimensi resi
                                             if (login == 1) {
-                                                dataPengiriman3[b][k1] = namaPengirim;
-                                                dataPengiriman3[b + 1][k1] = noHpPengirim;
-                                                dataPengiriman3[b + 2][k1] = namaPenerima;
-                                                dataPengiriman3[b + 3][k1] = noHpPenerima;
-                                                dataPengiriman3[b + 4][k1] = alamatPenerima;
-                                                dataPengiriman3[b + 5][k1] = resi;
+                                                dataPengiriman3[b][k3] = namaPengirim;
+                                                dataPengiriman3[b + 1][k3] = noHpPengirim;
+                                                dataPengiriman3[b + 2][k3] = namaPenerima;
+                                                dataPengiriman3[b + 3][k3] = noHpPenerima;
+                                                dataPengiriman3[b + 4][k3] = alamatPenerima;
+                                                dataPengiriman3[b + 5][k3] = resi;
 
-                                                dataPaket3[b][k1] = total;
-                                                dataPaket3[b + 1][k1] = beratPaket;
-                                                dataPaket3[b + 2][k1] = jarakPengiriman;
+                                                dataPaket3[b][k3] = total;
+                                                dataPaket3[b + 1][k3] = beratPaket;
+                                                dataPaket3[b + 2][k3] = jarakPengiriman;
                                                 k3++;
 
                                             }
@@ -1114,7 +1114,7 @@ public class pengiriman {
                                 break;
                             case 3: // Courier
                                 masukKurir = loginIng(loginKurir);
-                                if ((masukKurir == 1)||(masukKurir == 2)) {
+                                if ((masukKurir == 1) || (masukKurir == 2)) {
                                     System.out.println("Welcome, courier!");
                                     while (true) {
                                         System.out.println("_________________________________________");
@@ -1487,16 +1487,16 @@ public class pengiriman {
                                                         }
                                                         // memasukkan array 2 dimensi resi
                                                         if (login == 1) {
-                                                            dataPengiriman3[b][k1] = namaPengirim;
-                                                            dataPengiriman3[b + 1][k1] = noHpPengirim;
-                                                            dataPengiriman3[b + 2][k1] = namaPenerima;
-                                                            dataPengiriman3[b + 3][k1] = noHpPenerima;
-                                                            dataPengiriman3[b + 4][k1] = alamatPenerima;
-                                                            dataPengiriman3[b + 5][k1] = resi;
+                                                            dataPengiriman3[b][k3] = namaPengirim;
+                                                            dataPengiriman3[b + 1][k3] = noHpPengirim;
+                                                            dataPengiriman3[b + 2][k3] = namaPenerima;
+                                                            dataPengiriman3[b + 3][k3] = noHpPenerima;
+                                                            dataPengiriman3[b + 4][k3] = alamatPenerima;
+                                                            dataPengiriman3[b + 5][k3] = resi;
 
-                                                            dataPaket3[b][k1] = total;
-                                                            dataPaket3[b + 1][k1] = beratPaket;
-                                                            dataPaket3[b + 2][k1] = jarakPengiriman;
+                                                            dataPaket3[b][k3] = total;
+                                                            dataPaket3[b + 1][k3] = beratPaket;
+                                                            dataPaket3[b + 2][k3] = jarakPengiriman;
                                                             k3++;
 
                                                         }

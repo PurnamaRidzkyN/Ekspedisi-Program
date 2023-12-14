@@ -1981,7 +1981,7 @@ public class pengiriman {
             Scanner input = new Scanner(System.in);
             LocalDate date = LocalDate.now();
             LocalTime time = LocalTime.now();
-            System.out.print("Masukkan No Resi yang ingin dikonfirmasi: ");
+            System.out.print("Masukkan No Resi Paket: ");
             String resi = input.nextLine();
             boolean riwayatDitemukan = false;
             for (int i = 0; i < dataPengiriman[5].length; i++) {
@@ -2038,7 +2038,7 @@ public class pengiriman {
             Scanner input = new Scanner(System.in);
             LocalDate date = LocalDate.now();
             LocalTime time = LocalTime.now();
-            System.out.print("Enter the Receipt Number you want to confirm: ");
+            System.out.print("Enter the Receipt Number Package: ");
             String resi = input.nextLine();
             boolean riwayatDitemukan = false;
             for (int i = 0; i < dataPengiriman[5].length; i++) {

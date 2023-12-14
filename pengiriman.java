@@ -411,19 +411,11 @@ public class pengiriman {
                                 int pilihan = input.nextInt();
 
                                 if (pilihan == 1) {
-                                    System.out.println("Masukkan no resi yang ingin di konfirmasi: ");
-                                    String noResi = input.next();
-                                    tampilRiwayat(6, noResi, dataPengiriman1, dataPaket1, pilihanKurir);
-
+                                    pencarianRiwayat(input, dataPengiriman1, dataPaket1, k1);
                                 } else if (pilihan == 2) {
-                                    System.out.println("Masukkan no resi yang ingin di konfirmasi: ");
-                                    String noResi = input.next();
-                                    tampilRiwayat(6, noResi, dataPengiriman2, dataPaket2, pilihanKurir);
-
+                                    pencarianRiwayat(input, dataPengiriman2, dataPaket2, k2);
                                 } else if (pilihan == 3) {
-                                    System.out.println("Masukkan no resi yang ingin di konfirmasi: ");
-                                    String noResi = input.next();
-                                    tampilRiwayat(6, noResi, dataPengiriman3, dataPaket3, pilihanKurir);
+                                    pencarianRiwayat(input, dataPengiriman3, dataPaket3, k3);
                                 }
                             } else if (pilihanKurir == 2) {
                                 System.out.println("________________________");
@@ -1139,23 +1131,11 @@ public class pengiriman {
                                             int pilihan = input.nextInt();
 
                                             if (pilihan == 1) {
-                                                System.out.println("Enter The Receipt Number You Want To Confirm : ");
-                                                String noResi = input.next();
-                                                displayHistory(6, noResi, dataPengiriman1, dataPaket1,
-                                                        pilihanKurir);
-
+                                                historySearch(input, dataPengiriman1, dataPaket1, k1);
                                             } else if (pilihan == 2) {
-                                                System.out.println("Enter The Receipt Number You Want To Confirm : ");
-                                                String noResi = input.next();
-                                                displayHistory(6, noResi, dataPengiriman2, dataPaket2,
-                                                        pilihanKurir);
-
+                                                historySearch(input, dataPengiriman2, dataPaket2, k2);
                                             } else if (pilihan == 3) {
-                                                System.out
-                                                        .println("Enter The Receipt Number You Want To Confirm : ");
-                                                String noResi = input.next();
-                                                displayHistory(6, noResi, dataPengiriman3, dataPaket3,
-                                                        pilihanKurir);
+                                                historySearch(input, dataPengiriman3, dataPaket3, k3);
                                             }
                                         } else if (pilihanKurir == 2) {
                                             System.out.println("________________________");
